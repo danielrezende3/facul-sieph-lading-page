@@ -33,15 +33,6 @@ export function Hero() {
               </p>
             </ScrollReveal>
 
-            <ScrollReveal delay={0.3}>
-              <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <Button size="lg" className="gap-2">
-                  Solicitar demonstração
-                  <ArrowRight className="w-4 h-4" />
-                </Button>
-              </div>
-            </ScrollReveal>
-
             <ScrollReveal delay={0.4}>
               <div className="mt-12 flex items-center gap-8 justify-center lg:justify-start">
                 <div className="text-center">

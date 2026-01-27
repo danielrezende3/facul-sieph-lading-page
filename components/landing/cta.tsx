@@ -27,18 +27,6 @@ export function CTA() {
           </p>
         </ScrollReveal>
 
-        <ScrollReveal delay={0.3}>
-          <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="gap-2">
-              Agendar demonstração
-              <ArrowRight className="w-4 h-4" />
-            </Button>
-            <Button size="lg" variant="outline" className="gap-2 bg-transparent">
-              Falar com especialista
-            </Button>
-          </div>
-        </ScrollReveal>
-
         <ScrollReveal delay={0.4}>
           <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-8 text-sm text-muted-foreground">
             <a

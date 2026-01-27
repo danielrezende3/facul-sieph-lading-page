@@ -50,7 +50,6 @@ export function Header() {
             <Button variant="ghost" size="sm">
               Entrar
             </Button>
-            <Button size="sm">Solicitar demonstração</Button>
           </div>
 
           <button
@@ -97,7 +96,6 @@ export function Header() {
                 <Button variant="ghost" size="sm" className="justify-start">
                   Entrar
                 </Button>
-                <Button size="sm">Solicitar demonstração</Button>
               </div>
             </nav>
           </div>
