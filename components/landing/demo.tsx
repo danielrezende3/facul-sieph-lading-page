@@ -103,7 +103,7 @@ export function Demo() {
                   <div className="flex items-center gap-2 ml-2">
                     <span className="text-xs text-muted-foreground font-mono">0:00</span>
                     <div className="w-48 sm:w-64 md:w-80 h-1.5 bg-muted rounded-full overflow-hidden">
-                      <div className="h-full w-0 bg-gradient-to-r from-primary to-accent rounded-full" />
+                      <div className="h-full w-0 bg-linear-to-r from-primary to-accent rounded-full" />
                     </div>
                     <span className="text-xs text-muted-foreground font-mono">3:42</span>
                   </div>

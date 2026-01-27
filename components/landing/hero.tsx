@@ -73,7 +73,7 @@ export function Hero() {
           <ScrollReveal delay={0.2} direction="right">
             <div className="relative">
               <div className="relative bg-card rounded-2xl border border-border shadow-2xl overflow-hidden">
-                <div className="aspect-[4/3] bg-muted p-6 flex items-center justify-center">
+                <div className="aspect-4/3 bg-muted p-6 flex items-center justify-center">
                   <MicroscopeView />
                 </div>
                 <div className="absolute bottom-4 left-4 right-4 bg-background/90 backdrop-blur-sm rounded-xl p-4 border border-border">

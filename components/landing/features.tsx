@@ -5,7 +5,7 @@ import { Layers, BookOpen, ClipboardCheck, Microscope, Users } from "lucide-reac
 
 function AtlasVisual() {
   return (
-    <div className="relative w-full h-48 mt-4 overflow-hidden rounded-xl bg-gradient-to-br from-primary/5 to-accent/10">
+    <div className="relative w-full h-48 mt-4 overflow-hidden rounded-xl bg-linear-to-br from-primary/5 to-accent/10">
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="relative">
           {/* Lamina layers */}
@@ -49,7 +49,7 @@ function CoursesVisual() {
           <div key={i} className="flex items-center gap-3">
             <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
               <div 
-                className="h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all"
+                className="h-full bg-linear-to-r from-primary to-accent rounded-full transition-all"
                 style={{ width: `${course.progress}%` }}
               />
             </div>
@@ -86,7 +86,7 @@ function QuizVisual() {
 
 function MicroscopeVisual() {
   return (
-    <div className="relative w-full h-full min-h-[200px] flex items-center justify-center">
+    <div className="relative w-full h-full min-h-50 flex items-center justify-center">
       <div className="relative">
         {/* Microscope body */}
         <svg viewBox="0 0 120 140" className="w-32 h-40">
@@ -165,9 +165,9 @@ export function Features() {
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[minmax(180px,auto)]">
           
           {/* Atlas Virtual - Large card spanning 2 columns */}
-          <StaggerItem className="md:col-span-2 lg:row-span-2 group relative rounded-3xl border border-border bg-background/70 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-[360px]" innerClassName="h-full">
+          <StaggerItem className="md:col-span-2 lg:row-span-2 group relative rounded-3xl border border-border bg-background/70 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-90" innerClassName="h-full">
             <div className="relative h-full p-6">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-primary/5 to-transparent rounded-full -translate-y-1/2 translate-x-1/2" />
+              <div className="absolute top-0 right-0 w-64 h-64 bg-linear-to-bl from-primary/5 to-transparent rounded-full -translate-y-1/2 translate-x-1/2" />
               <div className="relative z-10">
                 <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
                   <Layers className="w-6 h-6 text-primary" />
@@ -183,7 +183,7 @@ export function Features() {
           </StaggerItem>
 
           {/* Cursos */}
-          <StaggerItem className="group relative rounded-3xl border border-border bg-background/70 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-[240px]" innerClassName="h-full">
+          <StaggerItem className="group relative rounded-3xl border border-border bg-background/70 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-60" innerClassName="h-full">
             <div className="h-full p-6">
               <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-3">
                 <BookOpen className="w-5 h-5 text-accent" />
@@ -197,7 +197,7 @@ export function Features() {
           </StaggerItem>
 
           {/* Quizzes */}
-          <StaggerItem className="group relative rounded-3xl border border-border bg-background/70 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-[240px]" innerClassName="h-full">
+          <StaggerItem className="group relative rounded-3xl border border-border bg-background/70 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-60" innerClassName="h-full">
             <div className="h-full p-6">
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
                 <ClipboardCheck className="w-5 h-5 text-primary" />
@@ -211,7 +211,7 @@ export function Features() {
           </StaggerItem>
 
           {/* Simulador - Primary colored card */}
-          <StaggerItem className="lg:col-span-1 group relative rounded-3xl border border-border bg-background/70 backdrop-blur-md text-foreground hover:border-primary/40 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-[260px]" innerClassName="h-full">
+          <StaggerItem className="lg:col-span-1 group relative rounded-3xl border border-border bg-background/70 backdrop-blur-md text-foreground hover:border-primary/40 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-65" innerClassName="h-full">
             <div className="relative h-full p-6">
               <div className="absolute bottom-0 right-0 w-32 h-32 bg-primary-foreground/5 rounded-full translate-y-1/2 translate-x-1/2" />
               <div className="relative z-10 h-full flex flex-col">
@@ -230,7 +230,7 @@ export function Features() {
           </StaggerItem>
 
           {/* Gestão - Wide card */}
-          <StaggerItem className="md:col-span-2 group relative rounded-3xl border border-border bg-gradient-to-br from-background/70 to-muted/30 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-[260px]" innerClassName="h-full">
+          <StaggerItem className="md:col-span-2 group relative rounded-3xl border border-border bg-linear-to-br from-background/70 to-muted/30 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-65" innerClassName="h-full">
             <div className="h-full p-6">
               <div className="grid md:grid-cols-2 gap-4 h-full">
                 <div className="flex flex-col justify-center">
