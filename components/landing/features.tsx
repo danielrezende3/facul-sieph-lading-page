@@ -41,7 +41,7 @@ function CoursesVisual() {
     <div className="relative w-full h-32 mt-4 overflow-hidden rounded-xl">
       <div className="flex flex-col gap-2">
         {[
-          { progress: 100, label: "Sistema Respiratorio" },
+          { progress: 100, label: "Sistema Respiratório" },
           { progress: 75, label: "Sistema Digestivo" },
           { progress: 45, label: "Sistema Nervoso" },
         ].map((course, i) => (
@@ -68,15 +68,15 @@ function QuizVisual() {
           <div className="w-4 h-4 rounded-full border-2 border-primary flex items-center justify-center">
             <div className="w-2 h-2 rounded-full bg-primary" />
           </div>
-          <span className="text-xs text-foreground">Celula epitelial escamosa</span>
+          <span className="text-xs text-foreground">Célula epitelial escamosa</span>
         </div>
         <div className="flex items-center gap-2 p-2 rounded-lg bg-muted/50 border border-border">
           <div className="w-4 h-4 rounded-full border-2 border-muted-foreground/30" />
-          <span className="text-xs text-muted-foreground">Celula columnar ciliada</span>
+          <span className="text-xs text-muted-foreground">Célula colunar ciliada</span>
         </div>
         <div className="flex items-center gap-2 p-2 rounded-lg bg-muted/50 border border-border">
           <div className="w-4 h-4 rounded-full border-2 border-muted-foreground/30" />
-          <span className="text-xs text-muted-foreground">Celula caliciforme</span>
+          <span className="text-xs text-muted-foreground">Célula caliciforme</span>
         </div>
       </div>
     </div>
@@ -124,7 +124,7 @@ function ManagementVisual() {
           <span className="text-2xl font-bold text-primary">2.4k</span>
         </div>
         <div className="bg-accent/10 rounded-lg p-3 flex flex-col justify-between">
-          <span className="text-xs text-muted-foreground">Conclusao</span>
+          <span className="text-xs text-muted-foreground">Conclusão</span>
           <span className="text-2xl font-bold text-accent">87%</span>
         </div>
         <div className="col-span-2 bg-muted/50 rounded-lg p-3">
@@ -152,11 +152,11 @@ export function Features() {
             Recursos
           </span>
           <h2 className="mt-4 font-serif text-3xl sm:text-4xl font-bold text-foreground text-balance">
-            Tudo que sua instituicao precisa para revolucionar o ensino
+            Tudo o que sua instituição precisa para revolucionar o ensino
           </h2>
           <p className="mt-4 text-lg text-muted-foreground text-pretty">
-            Uma plataforma completa que integra visualizacao de laminas, conteudo
-            didatico e avaliacoes em um unico ambiente.
+            Uma plataforma completa que integra visualização de lâminas, conteúdo
+            didático e avaliações em um único ambiente.
           </p>
         </div>
 
@@ -170,10 +170,10 @@ export function Features() {
               <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
                 <Layers className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">Atlas Virtual de Laminas</h3>
+              <h3 className="text-xl font-semibold text-foreground mb-2">Atlas Virtual de Lâminas</h3>
               <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                Acesso a mais de 10.000 laminas histologicas digitalizadas em alta resolucao. 
-                Navegue com zoom de ate 400x e ferramentas de anotacao integradas.
+                Acesso a mais de 10.000 lâminas histológicas digitalizadas em alta resolução. 
+                Navegue com zoom de até 400x e ferramentas de anotação integradas.
               </p>
               <AtlasVisual />
             </div>
@@ -186,7 +186,7 @@ export function Features() {
             </div>
             <h3 className="text-lg font-semibold text-foreground mb-1">Cursos Estruturados</h3>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              Conteudo pedagogico organizado por sistemas e patologias.
+              Conteúdo pedagógico organizado por sistemas e patologias.
             </p>
             <CoursesVisual />
           </div>
@@ -198,7 +198,7 @@ export function Features() {
             </div>
             <h3 className="text-lg font-semibold text-foreground mb-1">Quizzes Adaptativos</h3>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              Avaliacoes que se adaptam ao nivel do estudante.
+              Avaliações que se adaptam ao nível do estudante.
             </p>
             <QuizVisual />
           </div>
@@ -210,9 +210,9 @@ export function Features() {
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
                 <Microscope className="w-5 h-5 text-primary" />
               </div>
-              <h3 className="text-lg font-semibold mb-1">Simulador de Microscopio</h3>
+              <h3 className="text-lg font-semibold mb-1">Simulador de Microscópio</h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                Experiencia realista que replica o uso do microscopio optico.
+                Experiência realista que replica o uso do microscópio óptico.
               </p>
               <div className="flex-1 flex items-center justify-center mt-2">
                 <MicroscopeVisual />
@@ -220,17 +220,17 @@ export function Features() {
             </div>
           </div>
 
-          {/* Gestao - Wide card */}
+          {/* Gestão - Wide card */}
           <div className="md:col-span-2 group relative p-6 rounded-3xl border border-border bg-gradient-to-br from-background/70 to-muted/30 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden">
             <div className="grid md:grid-cols-2 gap-4 h-full">
               <div className="flex flex-col justify-center">
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
                   <Users className="w-5 h-5 text-primary" />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">Gestao Institucional</h3>
+                <h3 className="text-lg font-semibold text-foreground mb-2">Gestão Institucional</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Painel administrativo completo para acompanhar o progresso dos alunos, 
-                  criar turmas e gerar relatorios de desempenho detalhados.
+                  criar turmas e gerar relatórios de desempenho detalhados.
                 </p>
               </div>
               <ManagementVisual />

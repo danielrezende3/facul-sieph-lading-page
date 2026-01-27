@@ -4,19 +4,19 @@ import Link from "next/link";
 const footerLinks = {
   produto: [
     { label: "Recursos", href: "#features" },
-    { label: "Demonstracao", href: "#demo" },
-    { label: "Precos", href: "#pricing" },
+    { label: "Demonstração", href: "#demo" },
+    { label: "Preços", href: "#pricing" },
     { label: "Integrações", href: "#integrations" },
   ],
   empresa: [
-    { label: "Sobre nos", href: "#about" },
+    { label: "Sobre nós", href: "#about" },
     { label: "Blog", href: "#blog" },
     { label: "Carreiras", href: "#careers" },
     { label: "Imprensa", href: "#press" },
   ],
   suporte: [
     { label: "Central de ajuda", href: "#help" },
-    { label: "Documentacao", href: "#docs" },
+    { label: "Documentação", href: "#docs" },
     { label: "Status", href: "#status" },
     { label: "Contato", href: "#contact" },
   ],
@@ -35,16 +35,14 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-background flex items-center justify-center">
-                <CellIcon className="w-5 h-5 text-foreground" />
-              </div>
+              <img src="/Balls.svg" alt="" className="w-8 h-8" />
               <span className="font-serif text-xl font-semibold text-background">
                 SIEHP
               </span>
             </Link>
             <p className="mt-4 text-sm text-background/70 max-w-xs">
-              Sistema Integrado de Ensino a Histologia e Patologia. Transformando
-              a educacao medica atraves da tecnologia.
+              Sistema Integrado de Ensino à Histologia e Patologia. Transformando
+              a educação médica através da tecnologia.
             </p>
           </div>
 

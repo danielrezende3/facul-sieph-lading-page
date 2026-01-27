@@ -8,10 +8,10 @@ const _inter = Inter({ subsets: ["latin"] });
 const _playfairDisplay = Playfair_Display({ subsets: ["latin"], weight: ["400", "600", "700"] });
 
 export const metadata: Metadata = {
-  title: 'SIEHP | Sistema Integrado de Ensino a Histologia e Patologia',
-  description: 'Plataforma educacional inovadora para o ensino de histologia e patologia. Atlas virtual de laminas, cursos interativos e avaliacoes para instituicoes de ensino.',
+  title: 'SIEHP | Sistema Integrado de Ensino à Histologia e Patologia',
+  description: 'Plataforma educacional inovadora para o ensino de histologia e patologia. Atlas virtual de lâminas, cursos interativos e avaliações para instituições de ensino.',
   generator: 'v0.app',
-  keywords: ['histologia', 'patologia', 'ensino', 'medicina', 'atlas virtual', 'laminas histologicas', 'educacao medica'],
+  keywords: ['histologia', 'patologia', 'ensino', 'medicina', 'atlas virtual', 'lâminas histológicas', 'educação médica'],
   icons: {
     icon: [
       {

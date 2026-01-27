@@ -21,19 +21,19 @@ export function Hero() {
             </h1>
 
             <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 text-pretty">
-              Sistema integrado que transforma a experiencia de aprendizado com
-              atlas virtual de laminas, cursos interativos e avaliacoes
-              inteligentes para sua instituicao.
+              Sistema integrado que transforma a experiência de aprendizado com
+              atlas virtual de lâminas, cursos interativos e avaliações
+              inteligentes para sua instituição.
             </p>
 
             <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Button size="lg" className="gap-2">
-                Solicitar demonstracao
+                Solicitar demonstração
                 <ArrowRight className="w-4 h-4" />
               </Button>
               <Button size="lg" variant="outline" className="gap-2 bg-transparent">
                 <Play className="w-4 h-4" />
-                Ver video
+                Ver vídeo
               </Button>
             </div>
 
@@ -41,20 +41,20 @@ export function Hero() {
               <div className="text-center">
                 <p className="text-3xl font-bold text-foreground">50+</p>
                 <p className="text-sm text-muted-foreground">
-                  Instituicoes parceiras
+                  Instituições parceiras
                 </p>
               </div>
               <div className="w-px h-12 bg-border" />
               <div className="text-center">
                 <p className="text-3xl font-bold text-foreground">10.000+</p>
                 <p className="text-sm text-muted-foreground">
-                  Laminas digitalizadas
+                  Lâminas digitalizadas
                 </p>
               </div>
               <div className="w-px h-12 bg-border" />
               <div className="text-center">
                 <p className="text-3xl font-bold text-foreground">98%</p>
-                <p className="text-sm text-muted-foreground">Satisfacao</p>
+                <p className="text-sm text-muted-foreground">Satisfação</p>
               </div>
             </div>
           </div>
@@ -74,7 +74,7 @@ export function Hero() {
                       Tecido Epitelial
                     </p>
                     <p className="text-xs text-muted-foreground">
-                      Aumento 400x - Coloracao H&E
+                      Aumento 400x - Coloração H&E
                     </p>
                   </div>
                 </div>
@@ -88,7 +88,7 @@ export function Hero() {
                   <span className="text-xs font-bold text-accent">AI</span>
                 </div>
                 <span className="text-xs text-muted-foreground">
-                  Analise assistida
+                  Análise assistida
                 </span>
               </div>
             </div>

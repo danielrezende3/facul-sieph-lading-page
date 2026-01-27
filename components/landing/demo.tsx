@@ -13,14 +13,14 @@ export function Demo() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="text-sm font-medium text-primary uppercase tracking-wider">
-            Demonstracao
+            Demonstração
           </span>
           <h2 className="mt-4 font-serif text-3xl sm:text-4xl font-bold text-foreground text-balance">
-            Conheca o SIEHP em acao
+            Conheça o SIEHP em ação
           </h2>
           <p className="mt-4 text-lg text-muted-foreground text-pretty">
-            Assista ao nosso video e descubra como o SIEHP pode transformar o ensino
-            de histologia e patologia na sua instituicao.
+            Assista ao nosso vídeo e descubra como o SIEHP pode transformar o ensino
+            de histologia e patologia na sua instituição.
           </p>
         </div>
 
@@ -61,7 +61,7 @@ export function Demo() {
             {isPlaying && (
               <div className="absolute inset-0 bg-foreground/95 flex items-center justify-center">
                 <p className="text-primary-foreground/60 text-sm">
-                  Video em reproducao...
+                  Vídeo em reprodução...
                 </p>
               </div>
             )}
@@ -126,8 +126,8 @@ export function Demo() {
         {/* Video highlights */}
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
           {[
-            { time: "0:30", label: "Visao geral da plataforma" },
-            { time: "1:15", label: "Atlas virtual em acao" },
+            { time: "0:30", label: "Visão geral da plataforma" },
+            { time: "1:15", label: "Atlas virtual em ação" },
             { time: "2:40", label: "Painel institucional" },
           ].map((highlight) => (
             <button

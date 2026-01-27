@@ -19,7 +19,7 @@ const teamGroups = [
     ],
   },
   {
-    title: "Consultoria Tecnica",
+    title: "Consultoria Técnica",
     icon: Lightbulb,
     color: "accent",
     members: [
@@ -30,7 +30,7 @@ const teamGroups = [
     ],
   },
   {
-    title: "Especialistas do Dominio",
+    title: "Especialistas do Domínio",
     icon: Microscope,
     color: "primary",
     members: [
@@ -57,7 +57,7 @@ export function Team() {
             Equipe
           </span>
           <h2 className="mt-4 font-display text-3xl sm:text-4xl font-bold text-foreground text-balance">
-            As pessoas por tras do SIEHP
+            As pessoas por trás do SIEHP
           </h2>
           <p className="mt-4 text-lg text-muted-foreground text-pretty">
             Uma equipe multidisciplinar dedicada a transformar o ensino de

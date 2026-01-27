@@ -13,9 +13,7 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-              <CellIcon className="w-5 h-5 text-primary-foreground" />
-            </div>
+            <img src="/Balls.svg" alt="" className="w-8 h-8" />
             <span className="font-serif text-xl font-semibold text-foreground">
               SIEHP
             </span>
@@ -32,7 +30,7 @@ export function Header() {
               href="#demo"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              Demonstracao
+              Demonstração
             </Link>
             <Link
               href="#testimonials"
@@ -52,7 +50,7 @@ export function Header() {
             <Button variant="ghost" size="sm">
               Entrar
             </Button>
-            <Button size="sm">Solicitar Demo</Button>
+            <Button size="sm">Solicitar demonstração</Button>
           </div>
 
           <button
@@ -81,7 +79,7 @@ export function Header() {
                 href="#demo"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
-                Demonstracao
+                Demonstração
               </Link>
               <Link
                 href="#testimonials"
@@ -99,7 +97,7 @@ export function Header() {
                 <Button variant="ghost" size="sm" className="justify-start">
                   Entrar
                 </Button>
-                <Button size="sm">Solicitar Demo</Button>
+                <Button size="sm">Solicitar demonstração</Button>
               </div>
             </nav>
           </div>
