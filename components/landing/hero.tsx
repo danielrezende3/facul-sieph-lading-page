@@ -27,8 +27,8 @@ export function Hero() {
 
             <ScrollReveal delay={0.2}>
               <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 text-pretty">
-                Sistema integrado que transforma a experiência de aprendizado com
-                atlas virtual de lâminas, cursos interativos e avaliações
+                Sistema integrado que transforma a experiência de aprendizado
+                com atlas virtual de lâminas, cursos interativos e avaliações
                 inteligentes para sua instituição.
               </p>
             </ScrollReveal>
@@ -38,10 +38,6 @@ export function Hero() {
                 <Button size="lg" className="gap-2">
                   Solicitar demonstração
                   <ArrowRight className="w-4 h-4" />
-                </Button>
-                <Button size="lg" variant="outline" className="gap-2 bg-transparent">
-                  <Play className="w-4 h-4" />
-                  Ver vídeo
                 </Button>
               </div>
             </ScrollReveal>
@@ -93,19 +89,7 @@ export function Hero() {
                 </div>
               </div>
 
-              {/* Floating elements */}
               <div className="absolute -top-4 -right-4 bg-card rounded-xl border border-border p-3 shadow-lg">
-                <div className="flex items-center gap-2">
-                  <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center">
-                    <span className="text-xs font-bold text-accent">AI</span>
-                  </div>
-                  <span className="text-xs text-muted-foreground">
-                    Análise assistida
-                  </span>
-                </div>
-              </div>
-
-              <div className="absolute -bottom-4 -left-4 bg-card rounded-xl border border-border p-3 shadow-lg">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                   <span className="text-xs text-muted-foreground">
@@ -160,7 +144,14 @@ function TissuePattern() {
           height="40"
           patternUnits="userSpaceOnUse"
         >
-          <circle cx="20" cy="20" r="15" fill="none" stroke="currentColor" strokeWidth="0.5" />
+          <circle
+            cx="20"
+            cy="20"
+            r="15"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="0.5"
+          />
           <circle cx="20" cy="20" r="5" fill="currentColor" opacity="0.3" />
         </pattern>
       </defs>
@@ -182,7 +173,15 @@ function MicroscopeSlide() {
         stroke="currentColor"
         strokeWidth="1"
       />
-      <rect x="25" y="40" width="50" height="20" rx="10" fill="currentColor" opacity="0.2" />
+      <rect
+        x="25"
+        y="40"
+        width="50"
+        height="20"
+        rx="10"
+        fill="currentColor"
+        opacity="0.2"
+      />
       <circle cx="50" cy="50" r="8" fill="currentColor" opacity="0.3" />
     </svg>
   );
@@ -205,7 +204,13 @@ function MicroscopeView() {
           stroke="oklch(0.50 0.18 300)"
           strokeWidth="2"
         />
-        <circle cx="80" cy="80" r="12" fill="oklch(0.50 0.18 300)" opacity="0.4" />
+        <circle
+          cx="80"
+          cy="80"
+          r="12"
+          fill="oklch(0.50 0.18 300)"
+          opacity="0.4"
+        />
 
         <circle
           cx="180"
@@ -215,7 +220,13 @@ function MicroscopeView() {
           stroke="oklch(0.75 0.15 340)"
           strokeWidth="2"
         />
-        <circle cx="180" cy="60" r="10" fill="oklch(0.75 0.15 340)" opacity="0.4" />
+        <circle
+          cx="180"
+          cy="60"
+          r="10"
+          fill="oklch(0.75 0.15 340)"
+          opacity="0.4"
+        />
 
         <circle
           cx="240"
@@ -225,7 +236,13 @@ function MicroscopeView() {
           stroke="oklch(0.50 0.18 300)"
           strokeWidth="2"
         />
-        <circle cx="240" cy="120" r="9" fill="oklch(0.50 0.18 300)" opacity="0.4" />
+        <circle
+          cx="240"
+          cy="120"
+          r="9"
+          fill="oklch(0.50 0.18 300)"
+          opacity="0.4"
+        />
 
         <circle
           cx="120"
@@ -235,7 +252,13 @@ function MicroscopeView() {
           stroke="oklch(0.75 0.15 340)"
           strokeWidth="2"
         />
-        <circle cx="120" cy="150" r="11" fill="oklch(0.75 0.15 340)" opacity="0.4" />
+        <circle
+          cx="120"
+          cy="150"
+          r="11"
+          fill="oklch(0.75 0.15 340)"
+          opacity="0.4"
+        />
 
         <circle
           cx="200"
@@ -245,15 +268,57 @@ function MicroscopeView() {
           stroke="oklch(0.50 0.18 300)"
           strokeWidth="2"
         />
-        <circle cx="200" cy="170" r="8" fill="oklch(0.50 0.18 300)" opacity="0.4" />
+        <circle
+          cx="200"
+          cy="170"
+          r="8"
+          fill="oklch(0.50 0.18 300)"
+          opacity="0.4"
+        />
 
         {/* Small organelles */}
-        <circle cx="70" cy="70" r="4" fill="oklch(0.60 0.15 320)" opacity="0.6" />
-        <circle cx="90" cy="85" r="3" fill="oklch(0.60 0.15 320)" opacity="0.6" />
-        <circle cx="175" cy="50" r="3" fill="oklch(0.60 0.15 320)" opacity="0.6" />
-        <circle cx="185" cy="70" r="2" fill="oklch(0.60 0.15 320)" opacity="0.6" />
-        <circle cx="115" cy="140" r="4" fill="oklch(0.60 0.15 320)" opacity="0.6" />
-        <circle cx="125" cy="160" r="3" fill="oklch(0.60 0.15 320)" opacity="0.6" />
+        <circle
+          cx="70"
+          cy="70"
+          r="4"
+          fill="oklch(0.60 0.15 320)"
+          opacity="0.6"
+        />
+        <circle
+          cx="90"
+          cy="85"
+          r="3"
+          fill="oklch(0.60 0.15 320)"
+          opacity="0.6"
+        />
+        <circle
+          cx="175"
+          cy="50"
+          r="3"
+          fill="oklch(0.60 0.15 320)"
+          opacity="0.6"
+        />
+        <circle
+          cx="185"
+          cy="70"
+          r="2"
+          fill="oklch(0.60 0.15 320)"
+          opacity="0.6"
+        />
+        <circle
+          cx="115"
+          cy="140"
+          r="4"
+          fill="oklch(0.60 0.15 320)"
+          opacity="0.6"
+        />
+        <circle
+          cx="125"
+          cy="160"
+          r="3"
+          fill="oklch(0.60 0.15 320)"
+          opacity="0.6"
+        />
 
         {/* Connecting tissue lines */}
         <path
