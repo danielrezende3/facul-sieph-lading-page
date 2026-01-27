@@ -204,14 +204,14 @@ export function Features() {
           </div>
 
           {/* Simulador - Primary colored card */}
-          <div className="lg:col-span-1 group relative p-6 rounded-3xl bg-primary/80 text-primary-foreground backdrop-blur-md hover:shadow-xl transition-all duration-300 overflow-hidden">
+          <div className="lg:col-span-1 group relative p-6 rounded-3xl border border-border bg-background/70 text-foreground backdrop-blur-md hover:border-primary/40 hover:shadow-xl transition-all duration-300 overflow-hidden">
             <div className="absolute bottom-0 right-0 w-32 h-32 bg-primary-foreground/5 rounded-full translate-y-1/2 translate-x-1/2" />
             <div className="relative z-10 h-full flex flex-col">
-              <div className="w-10 h-10 rounded-xl bg-primary-foreground/20 flex items-center justify-center mb-3">
-                <Microscope className="w-5 h-5 text-primary-foreground" />
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
+                <Microscope className="w-5 h-5 text-primary" />
               </div>
               <h3 className="text-lg font-semibold mb-1">Simulador de Microscopio</h3>
-              <p className="text-xs text-primary-foreground/80 leading-relaxed">
+              <p className="text-xs text-muted-foreground leading-relaxed">
                 Experiencia realista que replica o uso do microscopio optico.
               </p>
               <div className="flex-1 flex items-center justify-center mt-2">
