@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { ArrowRight, Play } from "lucide-react";
 
 export function Hero() {
@@ -9,99 +10,111 @@ export function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary text-secondary-foreground text-sm mb-6">
-              <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-              Plataforma educacional inovadora
-            </div>
-
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-balance">
-              O futuro do ensino em{" "}
-              <span className="text-primary">Histologia</span> e{" "}
-              <span className="text-accent">Patologia</span>
-            </h1>
-
-            <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 text-pretty">
-              Sistema integrado que transforma a experiência de aprendizado com
-              atlas virtual de lâminas, cursos interativos e avaliações
-              inteligentes para sua instituição.
-            </p>
-
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button size="lg" className="gap-2">
-                Solicitar demonstração
-                <ArrowRight className="w-4 h-4" />
-              </Button>
-              <Button size="lg" variant="outline" className="gap-2 bg-transparent">
-                <Play className="w-4 h-4" />
-                Ver vídeo
-              </Button>
-            </div>
-
-            <div className="mt-12 flex items-center gap-8 justify-center lg:justify-start">
-              <div className="text-center">
-                <p className="text-3xl font-bold text-foreground">50+</p>
-                <p className="text-sm text-muted-foreground">
-                  Instituições parceiras
-                </p>
+            <ScrollReveal>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary text-secondary-foreground text-sm mb-6">
+                <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                Plataforma educacional inovadora
               </div>
-              <div className="w-px h-12 bg-border" />
-              <div className="text-center">
-                <p className="text-3xl font-bold text-foreground">10.000+</p>
-                <p className="text-sm text-muted-foreground">
-                  Lâminas digitalizadas
-                </p>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.1}>
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-balance">
+                O futuro do ensino em{" "}
+                <span className="text-primary">Histologia</span> e{" "}
+                <span className="text-accent">Patologia</span>
+              </h1>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.2}>
+              <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 text-pretty">
+                Sistema integrado que transforma a experiência de aprendizado com
+                atlas virtual de lâminas, cursos interativos e avaliações
+                inteligentes para sua instituição.
+              </p>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.3}>
+              <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Button size="lg" className="gap-2">
+                  Solicitar demonstração
+                  <ArrowRight className="w-4 h-4" />
+                </Button>
+                <Button size="lg" variant="outline" className="gap-2 bg-transparent">
+                  <Play className="w-4 h-4" />
+                  Ver vídeo
+                </Button>
               </div>
-              <div className="w-px h-12 bg-border" />
-              <div className="text-center">
-                <p className="text-3xl font-bold text-foreground">98%</p>
-                <p className="text-sm text-muted-foreground">Satisfação</p>
+            </ScrollReveal>
+
+            <ScrollReveal delay={0.4}>
+              <div className="mt-12 flex items-center gap-8 justify-center lg:justify-start">
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-foreground">50+</p>
+                  <p className="text-sm text-muted-foreground">
+                    Instituições parceiras
+                  </p>
+                </div>
+                <div className="w-px h-12 bg-border" />
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-foreground">10.000+</p>
+                  <p className="text-sm text-muted-foreground">
+                    Lâminas digitalizadas
+                  </p>
+                </div>
+                <div className="w-px h-12 bg-border" />
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-foreground">98%</p>
+                  <p className="text-sm text-muted-foreground">Satisfação</p>
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
           </div>
 
-          <div className="relative">
-            <div className="relative bg-card rounded-2xl border border-border shadow-2xl overflow-hidden">
-              <div className="aspect-[4/3] bg-muted p-6 flex items-center justify-center">
-                <MicroscopeView />
-              </div>
-              <div className="absolute bottom-4 left-4 right-4 bg-background/90 backdrop-blur-sm rounded-xl p-4 border border-border">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
-                    <div className="w-3 h-3 rounded-full bg-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-medium text-foreground">
-                      Tecido Epitelial
-                    </p>
-                    <p className="text-xs text-muted-foreground">
-                      Aumento 400x - Coloração H&E
-                    </p>
+          <ScrollReveal delay={0.2} direction="right">
+            <div className="relative">
+              <div className="relative bg-card rounded-2xl border border-border shadow-2xl overflow-hidden">
+                <div className="aspect-[4/3] bg-muted p-6 flex items-center justify-center">
+                  <MicroscopeView />
+                </div>
+                <div className="absolute bottom-4 left-4 right-4 bg-background/90 backdrop-blur-sm rounded-xl p-4 border border-border">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                      <div className="w-3 h-3 rounded-full bg-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium text-foreground">
+                        Tecido Epitelial
+                      </p>
+                      <p className="text-xs text-muted-foreground">
+                        Aumento 400x - Coloração H&E
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Floating elements */}
-            <div className="absolute -top-4 -right-4 bg-card rounded-xl border border-border p-3 shadow-lg">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center">
-                  <span className="text-xs font-bold text-accent">AI</span>
+              {/* Floating elements */}
+              <div className="absolute -top-4 -right-4 bg-card rounded-xl border border-border p-3 shadow-lg">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center">
+                    <span className="text-xs font-bold text-accent">AI</span>
+                  </div>
+                  <span className="text-xs text-muted-foreground">
+                    Análise assistida
+                  </span>
                 </div>
-                <span className="text-xs text-muted-foreground">
-                  Análise assistida
-                </span>
               </div>
-            </div>
 
-            <div className="absolute -bottom-4 -left-4 bg-card rounded-xl border border-border p-3 shadow-lg">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-xs text-muted-foreground">
-                  2.341 alunos online
-                </span>
+              <div className="absolute -bottom-4 -left-4 bg-card rounded-xl border border-border p-3 shadow-lg">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                  <span className="text-xs text-muted-foreground">
+                    2.341 alunos online
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

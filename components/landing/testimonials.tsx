@@ -1,5 +1,6 @@
 "use client";
 
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Code, Lightbulb, Microscope } from "lucide-react";
 
 const teamGroups = [
@@ -66,10 +67,13 @@ export function Team() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          {teamGroups.map((group) => (
-            <div
+          {teamGroups.map((group, index) => (
+            <ScrollReveal
               key={group.title}
-              className="relative bg-background/70 backdrop-blur-md rounded-2xl border border-border p-6 hover:shadow-xl hover:border-primary/40 transition-all"
+              direction={index % 2 === 0 ? "left" : "right"}
+              delay={index * 0.1}
+              className="relative rounded-2xl border border-border bg-background/70 backdrop-blur-md hover:shadow-xl hover:border-primary/40 transition-all overflow-hidden min-h-[320px]"
+              innerClassName="h-full p-6"
             >
               {/* Header */}
               <div className="flex items-center gap-3 mb-6">
@@ -114,7 +118,7 @@ export function Team() {
                   </div>
                 ))}
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

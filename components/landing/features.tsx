@@ -1,5 +1,6 @@
 "use client";
 
+import { StaggerContainer, StaggerItem } from "@/components/ui/stagger-container";
 import { Layers, BookOpen, ClipboardCheck, Microscope, Users } from "lucide-react";
 
 function AtlasVisual() {
@@ -116,7 +117,7 @@ function MicroscopeVisual() {
 
 function ManagementVisual() {
   return (
-    <div className="relative w-full h-full min-h-[200px] p-4">
+    <div className="relative w-full h-full min-h-50 p-4">
       {/* Mini dashboard */}
       <div className="grid grid-cols-2 gap-2 h-full">
         <div className="bg-primary/10 rounded-lg p-3 flex flex-col justify-between">
@@ -132,7 +133,7 @@ function ManagementVisual() {
             {[40, 65, 45, 80, 55, 90, 70].map((h, i) => (
               <div 
                 key={i} 
-                className="flex-1 bg-gradient-to-t from-primary/60 to-accent/60 rounded-t"
+                className="flex-1 bg-linear-to-t from-primary/60 to-accent/60 rounded-t"
                 style={{ height: `${h}%` }}
               />
             ))}
@@ -161,83 +162,93 @@ export function Features() {
         </div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[minmax(180px,auto)]">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[minmax(180px,auto)]">
           
           {/* Atlas Virtual - Large card spanning 2 columns */}
-          <div className="md:col-span-2 lg:row-span-2 group relative p-6 rounded-3xl border border-border bg-background/70 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-primary/5 to-transparent rounded-full -translate-y-1/2 translate-x-1/2" />
-            <div className="relative z-10">
-              <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
-                <Layers className="w-6 h-6 text-primary" />
+          <StaggerItem className="md:col-span-2 lg:row-span-2 group relative rounded-3xl border border-border bg-background/70 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-[360px]" innerClassName="h-full">
+            <div className="relative h-full p-6">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-primary/5 to-transparent rounded-full -translate-y-1/2 translate-x-1/2" />
+              <div className="relative z-10">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
+                  <Layers className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-2">Atlas Virtual de Lâminas</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                  Acesso a mais de 10.000 lâminas histológicas digitalizadas em alta resolução. 
+                  Navegue com zoom de até 400x e ferramentas de anotação integradas.
+                </p>
+                <AtlasVisual />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">Atlas Virtual de Lâminas</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                Acesso a mais de 10.000 lâminas histológicas digitalizadas em alta resolução. 
-                Navegue com zoom de até 400x e ferramentas de anotação integradas.
-              </p>
-              <AtlasVisual />
             </div>
-          </div>
+          </StaggerItem>
 
           {/* Cursos */}
-          <div className="group relative p-6 rounded-3xl border border-border bg-background/70 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300">
-            <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-3">
-              <BookOpen className="w-5 h-5 text-accent" />
+          <StaggerItem className="group relative rounded-3xl border border-border bg-background/70 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-[240px]" innerClassName="h-full">
+            <div className="h-full p-6">
+              <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-3">
+                <BookOpen className="w-5 h-5 text-accent" />
+              </div>
+              <h3 className="text-lg font-semibold text-foreground mb-1">Cursos Estruturados</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Conteúdo pedagógico organizado por sistemas e patologias.
+              </p>
+              <CoursesVisual />
             </div>
-            <h3 className="text-lg font-semibold text-foreground mb-1">Cursos Estruturados</h3>
-            <p className="text-xs text-muted-foreground leading-relaxed">
-              Conteúdo pedagógico organizado por sistemas e patologias.
-            </p>
-            <CoursesVisual />
-          </div>
+          </StaggerItem>
 
           {/* Quizzes */}
-          <div className="group relative p-6 rounded-3xl border border-border bg-background/70 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300">
-            <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
-              <ClipboardCheck className="w-5 h-5 text-primary" />
+          <StaggerItem className="group relative rounded-3xl border border-border bg-background/70 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-[240px]" innerClassName="h-full">
+            <div className="h-full p-6">
+              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
+                <ClipboardCheck className="w-5 h-5 text-primary" />
+              </div>
+              <h3 className="text-lg font-semibold text-foreground mb-1">Quizzes Adaptativos</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Avaliações que se adaptam ao nível do estudante.
+              </p>
+              <QuizVisual />
             </div>
-            <h3 className="text-lg font-semibold text-foreground mb-1">Quizzes Adaptativos</h3>
-            <p className="text-xs text-muted-foreground leading-relaxed">
-              Avaliações que se adaptam ao nível do estudante.
-            </p>
-            <QuizVisual />
-          </div>
+          </StaggerItem>
 
           {/* Simulador - Primary colored card */}
-          <div className="lg:col-span-1 group relative p-6 rounded-3xl border border-border bg-background/70 text-foreground backdrop-blur-md hover:border-primary/40 hover:shadow-xl transition-all duration-300 overflow-hidden">
-            <div className="absolute bottom-0 right-0 w-32 h-32 bg-primary-foreground/5 rounded-full translate-y-1/2 translate-x-1/2" />
-            <div className="relative z-10 h-full flex flex-col">
-              <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
-                <Microscope className="w-5 h-5 text-primary" />
-              </div>
-              <h3 className="text-lg font-semibold mb-1">Simulador de Microscópio</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                Experiência realista que replica o uso do microscópio óptico.
-              </p>
-              <div className="flex-1 flex items-center justify-center mt-2">
-                <MicroscopeVisual />
+          <StaggerItem className="lg:col-span-1 group relative rounded-3xl border border-border bg-background/70 backdrop-blur-md text-foreground hover:border-primary/40 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-[260px]" innerClassName="h-full">
+            <div className="relative h-full p-6">
+              <div className="absolute bottom-0 right-0 w-32 h-32 bg-primary-foreground/5 rounded-full translate-y-1/2 translate-x-1/2" />
+              <div className="relative z-10 h-full flex flex-col">
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
+                  <Microscope className="w-5 h-5 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold mb-1">Simulador de Microscópio</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  Experiência realista que replica o uso do microscópio óptico.
+                </p>
+                <div className="flex-1 flex items-center justify-center mt-2">
+                  <MicroscopeVisual />
+                </div>
               </div>
             </div>
-          </div>
+          </StaggerItem>
 
           {/* Gestão - Wide card */}
-          <div className="md:col-span-2 group relative p-6 rounded-3xl border border-border bg-gradient-to-br from-background/70 to-muted/30 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden">
-            <div className="grid md:grid-cols-2 gap-4 h-full">
-              <div className="flex flex-col justify-center">
-                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
-                  <Users className="w-5 h-5 text-primary" />
+          <StaggerItem className="md:col-span-2 group relative rounded-3xl border border-border bg-gradient-to-br from-background/70 to-muted/30 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-[260px]" innerClassName="h-full">
+            <div className="h-full p-6">
+              <div className="grid md:grid-cols-2 gap-4 h-full">
+                <div className="flex flex-col justify-center">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
+                    <Users className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">Gestão Institucional</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    Painel administrativo completo para acompanhar o progresso dos alunos, 
+                    criar turmas e gerar relatórios de desempenho detalhados.
+                  </p>
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">Gestão Institucional</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Painel administrativo completo para acompanhar o progresso dos alunos, 
-                  criar turmas e gerar relatórios de desempenho detalhados.
-                </p>
+                <ManagementVisual />
               </div>
-              <ManagementVisual />
             </div>
-          </div>
+          </StaggerItem>
 
-        </div>
+        </StaggerContainer>
       </div>
     </section>
   );

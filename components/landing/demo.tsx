@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Play, Pause, Volume2, VolumeX, Maximize2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ScrollReveal } from "@/components/ui/scroll-reveal";
 
 export function Demo() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -25,103 +26,105 @@ export function Demo() {
         </div>
 
         {/* Video Player Container */}
-        <div className="relative rounded-3xl overflow-hidden bg-foreground/5 border border-border shadow-2xl">
-          {/* Decorative elements */}
-          <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
-          
-          {/* Video wrapper */}
-          <div className="relative aspect-video bg-foreground/5">
-            {/* Thumbnail/Placeholder with cell pattern */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <VideoThumbnail />
+        <ScrollReveal>
+          <div className="relative rounded-3xl overflow-hidden bg-foreground/5 border border-border shadow-2xl">
+            {/* Decorative elements */}
+            <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
+            
+            {/* Video wrapper */}
+            <div className="relative aspect-video bg-foreground/5">
+              {/* Thumbnail/Placeholder with cell pattern */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <VideoThumbnail />
+              </div>
+
+              {/* Play button overlay */}
+              {!isPlaying && (
+                <div className="absolute inset-0 flex items-center justify-center bg-foreground/10 backdrop-blur-[2px]">
+                  <button
+                    type="button"
+                    onClick={() => setIsPlaying(true)}
+                    className="group relative flex items-center justify-center"
+                  >
+                    {/* Outer ring animation */}
+                    <span className="absolute w-28 h-28 rounded-full bg-primary/20 animate-ping" />
+                    <span className="absolute w-24 h-24 rounded-full bg-primary/30" />
+                    
+                    {/* Play button */}
+                    <span className="relative w-20 h-20 rounded-full bg-primary flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      <Play className="w-8 h-8 text-primary-foreground ml-1" fill="currentColor" />
+                    </span>
+                  </button>
+                </div>
+              )}
+
+              {/* Video element (placeholder - would be replaced with actual video) */}
+              {isPlaying && (
+                <div className="absolute inset-0 bg-foreground/95 flex items-center justify-center">
+                  <p className="text-primary-foreground/60 text-sm">
+                    Vídeo em reprodução...
+                  </p>
+                </div>
+              )}
             </div>
 
-            {/* Play button overlay */}
-            {!isPlaying && (
-              <div className="absolute inset-0 flex items-center justify-center bg-foreground/10 backdrop-blur-[2px]">
-                <button
-                  type="button"
-                  onClick={() => setIsPlaying(true)}
-                  className="group relative flex items-center justify-center"
-                >
-                  {/* Outer ring animation */}
-                  <span className="absolute w-28 h-28 rounded-full bg-primary/20 animate-ping" />
-                  <span className="absolute w-24 h-24 rounded-full bg-primary/30" />
+            {/* Video controls */}
+            <div className="relative z-10 p-4 bg-card border-t border-border">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => setIsPlaying(!isPlaying)}
+                    className="hover:bg-primary/10"
+                  >
+                    {isPlaying ? (
+                      <Pause className="w-5 h-5 text-foreground" />
+                    ) : (
+                      <Play className="w-5 h-5 text-foreground" />
+                    )}
+                  </Button>
                   
-                  {/* Play button */}
-                  <span className="relative w-20 h-20 rounded-full bg-primary flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
-                    <Play className="w-8 h-8 text-primary-foreground ml-1" fill="currentColor" />
-                  </span>
-                </button>
-              </div>
-            )}
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => setIsMuted(!isMuted)}
+                    className="hover:bg-primary/10"
+                  >
+                    {isMuted ? (
+                      <VolumeX className="w-5 h-5 text-foreground" />
+                    ) : (
+                      <Volume2 className="w-5 h-5 text-foreground" />
+                    )}
+                  </Button>
 
-            {/* Video element (placeholder - would be replaced with actual video) */}
-            {isPlaying && (
-              <div className="absolute inset-0 bg-foreground/95 flex items-center justify-center">
-                <p className="text-primary-foreground/60 text-sm">
-                  Vídeo em reprodução...
-                </p>
-              </div>
-            )}
-          </div>
-
-          {/* Video controls */}
-          <div className="relative z-10 p-4 bg-card border-t border-border">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => setIsPlaying(!isPlaying)}
-                  className="hover:bg-primary/10"
-                >
-                  {isPlaying ? (
-                    <Pause className="w-5 h-5 text-foreground" />
-                  ) : (
-                    <Play className="w-5 h-5 text-foreground" />
-                  )}
-                </Button>
-                
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => setIsMuted(!isMuted)}
-                  className="hover:bg-primary/10"
-                >
-                  {isMuted ? (
-                    <VolumeX className="w-5 h-5 text-foreground" />
-                  ) : (
-                    <Volume2 className="w-5 h-5 text-foreground" />
-                  )}
-                </Button>
-
-                {/* Progress bar */}
-                <div className="flex items-center gap-2 ml-2">
-                  <span className="text-xs text-muted-foreground font-mono">0:00</span>
-                  <div className="w-48 sm:w-64 md:w-80 h-1.5 bg-muted rounded-full overflow-hidden">
-                    <div className="h-full w-0 bg-gradient-to-r from-primary to-accent rounded-full" />
+                  {/* Progress bar */}
+                  <div className="flex items-center gap-2 ml-2">
+                    <span className="text-xs text-muted-foreground font-mono">0:00</span>
+                    <div className="w-48 sm:w-64 md:w-80 h-1.5 bg-muted rounded-full overflow-hidden">
+                      <div className="h-full w-0 bg-gradient-to-r from-primary to-accent rounded-full" />
+                    </div>
+                    <span className="text-xs text-muted-foreground font-mono">3:42</span>
                   </div>
-                  <span className="text-xs text-muted-foreground font-mono">3:42</span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <span className="hidden sm:inline text-sm text-muted-foreground">
+                    SIEHP - Pitch 2024
+                  </span>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="hover:bg-primary/10"
+                  >
+                    <Maximize2 className="w-5 h-5 text-foreground" />
+                  </Button>
                 </div>
               </div>
-
-              <div className="flex items-center gap-2">
-                <span className="hidden sm:inline text-sm text-muted-foreground">
-                  SIEHP - Pitch 2024
-                </span>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="hover:bg-primary/10"
-                >
-                  <Maximize2 className="w-5 h-5 text-foreground" />
-                </Button>
-              </div>
             </div>
           </div>
-        </div>
+        </ScrollReveal>
 
         {/* Video highlights */}
         <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -135,7 +138,7 @@ export function Demo() {
               type="button"
               className="flex items-center gap-3 p-3 rounded-xl border border-border bg-card hover:border-primary/50 hover:bg-primary/5 transition-all text-left"
             >
-              <span className="flex-shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+              <span className="shrink-0 w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
                 <Play className="w-4 h-4 text-primary" />
               </span>
               <div>

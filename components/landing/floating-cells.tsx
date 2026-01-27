@@ -2,37 +2,52 @@
 
 import { useEffect, useRef, useState } from "react";
 
-// Posicoes para formar a letra "S" - coordenadas em porcentagem (0-1)
-// O S eh formado por tres partes: curva superior, diagonal, curva inferior
+// Posicoes para formar a letra "S" - GORDO e bem preenchido
 const S_POSITIONS = [
-  // === CURVA SUPERIOR (abre para a esquerda) ===
-  // Linha externa do topo
-  { x: 0.58, y: 0.22 }, { x: 0.54, y: 0.20 }, { x: 0.50, y: 0.19 }, { x: 0.46, y: 0.20 }, { x: 0.42, y: 0.22 },
-  // Linha interna do topo
-  { x: 0.56, y: 0.25 }, { x: 0.52, y: 0.23 }, { x: 0.48, y: 0.23 }, { x: 0.44, y: 0.25 },
-  // Lado esquerdo descendo
-  { x: 0.40, y: 0.26 }, { x: 0.38, y: 0.30 }, { x: 0.38, y: 0.34 }, { x: 0.40, y: 0.38 },
-  // Preenchimento interno esquerdo
-  { x: 0.42, y: 0.28 }, { x: 0.42, y: 0.32 }, { x: 0.44, y: 0.36 },
+  // === CURVA SUPERIOR ===
+  // Topo - linha 1 (mais externa)
+  { x: 0.62, y: 0.20 }, { x: 0.58, y: 0.18 }, { x: 0.54, y: 0.17 }, { x: 0.50, y: 0.17 }, { x: 0.46, y: 0.18 }, { x: 0.42, y: 0.20 },
+  // Topo - linha 2
+  { x: 0.60, y: 0.23 }, { x: 0.56, y: 0.21 }, { x: 0.52, y: 0.20 }, { x: 0.48, y: 0.20 }, { x: 0.44, y: 0.21 }, { x: 0.40, y: 0.23 },
+  // Topo - linha 3 (mais interna)
+  { x: 0.58, y: 0.26 }, { x: 0.54, y: 0.24 }, { x: 0.50, y: 0.23 }, { x: 0.46, y: 0.24 }, { x: 0.42, y: 0.26 },
+  // Lado esquerdo descendo - externo
+  { x: 0.38, y: 0.24 }, { x: 0.36, y: 0.28 }, { x: 0.35, y: 0.32 }, { x: 0.35, y: 0.36 }, { x: 0.36, y: 0.40 },
+  // Lado esquerdo descendo - meio
+  { x: 0.40, y: 0.26 }, { x: 0.38, y: 0.30 }, { x: 0.37, y: 0.34 }, { x: 0.38, y: 0.38 },
+  // Lado esquerdo descendo - interno
+  { x: 0.42, y: 0.28 }, { x: 0.40, y: 0.32 }, { x: 0.40, y: 0.36 }, { x: 0.42, y: 0.40 },
+  // Preenchimento interno superior
+  { x: 0.44, y: 0.30 }, { x: 0.44, y: 0.34 }, { x: 0.46, y: 0.32 },
 
-  // === DIAGONAL DO MEIO ===
-  { x: 0.44, y: 0.40 }, { x: 0.46, y: 0.42 }, { x: 0.48, y: 0.44 }, { x: 0.50, y: 0.46 },
-  { x: 0.52, y: 0.48 }, { x: 0.54, y: 0.50 }, { x: 0.56, y: 0.52 },
-  // Espessura da diagonal
-  { x: 0.46, y: 0.44 }, { x: 0.48, y: 0.46 }, { x: 0.50, y: 0.48 }, { x: 0.52, y: 0.50 }, { x: 0.54, y: 0.52 },
+  // === DIAGONAL DO MEIO (bem gorda) ===
+  // Linha externa superior
+  { x: 0.40, y: 0.42 }, { x: 0.42, y: 0.44 }, { x: 0.44, y: 0.46 }, { x: 0.46, y: 0.48 }, { x: 0.48, y: 0.50 }, { x: 0.50, y: 0.52 }, { x: 0.52, y: 0.54 }, { x: 0.54, y: 0.56 }, { x: 0.56, y: 0.58 },
+  // Linha do meio
+  { x: 0.42, y: 0.45 }, { x: 0.44, y: 0.47 }, { x: 0.46, y: 0.49 }, { x: 0.48, y: 0.51 }, { x: 0.50, y: 0.53 }, { x: 0.52, y: 0.55 }, { x: 0.54, y: 0.57 },
+  // Linha externa inferior
+  { x: 0.44, y: 0.48 }, { x: 0.46, y: 0.50 }, { x: 0.48, y: 0.52 }, { x: 0.50, y: 0.54 }, { x: 0.52, y: 0.56 }, { x: 0.54, y: 0.58 }, { x: 0.56, y: 0.60 },
+  // Preenchimento extra da diagonal
+  { x: 0.45, y: 0.46 }, { x: 0.47, y: 0.48 }, { x: 0.49, y: 0.50 }, { x: 0.51, y: 0.52 }, { x: 0.53, y: 0.54 },
 
-  // === CURVA INFERIOR (abre para a direita) ===
-  // Lado direito descendo
-  { x: 0.58, y: 0.54 }, { x: 0.60, y: 0.58 }, { x: 0.62, y: 0.62 }, { x: 0.62, y: 0.66 }, { x: 0.60, y: 0.70 },
-  // Preenchimento interno direito
-  { x: 0.58, y: 0.56 }, { x: 0.58, y: 0.60 }, { x: 0.58, y: 0.64 }, { x: 0.56, y: 0.68 },
-  // Linha externa da base
-  { x: 0.58, y: 0.72 }, { x: 0.54, y: 0.74 }, { x: 0.50, y: 0.75 }, { x: 0.46, y: 0.74 }, { x: 0.42, y: 0.72 },
-  // Linha interna da base
-  { x: 0.56, y: 0.70 }, { x: 0.52, y: 0.72 }, { x: 0.48, y: 0.72 }, { x: 0.44, y: 0.70 },
+  // === CURVA INFERIOR ===
+  // Lado direito descendo - externo
+  { x: 0.60, y: 0.56 }, { x: 0.62, y: 0.60 }, { x: 0.64, y: 0.64 }, { x: 0.64, y: 0.68 }, { x: 0.62, y: 0.72 },
+  // Lado direito descendo - meio
+  { x: 0.58, y: 0.58 }, { x: 0.60, y: 0.62 }, { x: 0.62, y: 0.66 }, { x: 0.60, y: 0.70 },
+  // Lado direito descendo - interno
+  { x: 0.56, y: 0.60 }, { x: 0.58, y: 0.64 }, { x: 0.58, y: 0.68 }, { x: 0.56, y: 0.72 },
+  // Preenchimento interno inferior
+  { x: 0.54, y: 0.66 }, { x: 0.54, y: 0.70 }, { x: 0.52, y: 0.68 },
+  // Base - linha 1 (mais interna)
+  { x: 0.58, y: 0.74 }, { x: 0.54, y: 0.76 }, { x: 0.50, y: 0.77 }, { x: 0.46, y: 0.76 }, { x: 0.42, y: 0.74 },
+  // Base - linha 2
+  { x: 0.60, y: 0.77 }, { x: 0.56, y: 0.79 }, { x: 0.52, y: 0.80 }, { x: 0.48, y: 0.80 }, { x: 0.44, y: 0.79 }, { x: 0.40, y: 0.77 },
+  // Base - linha 3 (mais externa)
+  { x: 0.62, y: 0.80 }, { x: 0.58, y: 0.82 }, { x: 0.54, y: 0.83 }, { x: 0.50, y: 0.83 }, { x: 0.46, y: 0.82 }, { x: 0.42, y: 0.80 }, { x: 0.38, y: 0.78 },
 ];
 
-const S_OFFSET_Y = -0.02;
+const S_OFFSET_Y = -0.05;
 
 const clampPercent = (value: number) => {
   return Math.min(95, Math.max(5, value));
@@ -63,7 +78,7 @@ function generateCells(): Cell[] {
       startY: Math.random() * 100,
       endX: pos.x * 100,
       endY: clampPercent((pos.y + S_OFFSET_Y) * 100),
-      size: 12 + Math.random() * 8, // Celulas maiores
+      size: 14 + Math.random() * 10, // Celulas bem grandes
       color: Math.random() > 0.5 ? "primary" : "accent",
       delay: Math.random() * 1.5,
       floatOffsetX: Math.random() * 20 - 10,
@@ -135,73 +150,65 @@ export function FloatingCells() {
       style={{ zIndex: 1 }}
       aria-hidden="true"
     >
-      <svg
-        className="w-full h-full"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
-      >
-        <defs>
-          <filter id="cellBlur" x="-100%" y="-100%" width="300%" height="300%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="1.2" />
-          </filter>
-          <filter id="cellBlurLight" x="-100%" y="-100%" width="300%" height="300%">
-            <feGaussianBlur in="SourceGraphic" stdDeviation="0.6" />
-          </filter>
-          <radialGradient id="primaryGradient" cx="30%" cy="30%">
-            <stop offset="0%" stopColor="oklch(0.55 0.22 300)" stopOpacity="1" />
-            <stop offset="70%" stopColor="oklch(0.50 0.20 300)" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="oklch(0.45 0.18 300)" stopOpacity="0.5" />
-          </radialGradient>
-          <radialGradient id="accentGradient" cx="30%" cy="30%">
-            <stop offset="0%" stopColor="oklch(0.78 0.18 340)" stopOpacity="1" />
-            <stop offset="70%" stopColor="oklch(0.72 0.16 340)" stopOpacity="0.8" />
-            <stop offset="100%" stopColor="oklch(0.65 0.14 340)" stopOpacity="0.5" />
-          </radialGradient>
-        </defs>
+      {cells.map((cell) => {
+        // Calcular progresso individual com delay
+        const adjustedProgress = Math.max(0, Math.min(1, (scrollProgress * 1.8) - cell.delay * 0.1));
+        const easedProgress = easeInOutCubic(adjustedProgress);
 
-        {cells.map((cell) => {
-          // Calcular progresso individual com delay
-          const adjustedProgress = Math.max(0, Math.min(1, (scrollProgress * 1.8) - cell.delay * 0.1));
-          const easedProgress = easeInOutCubic(adjustedProgress);
+        // Posicao interpolada entre inicio e fim
+        const baseX = cell.startX + (cell.endX - cell.startX) * easedProgress;
+        const baseY = cell.startY + (cell.endY - cell.startY) * easedProgress;
 
-          // Posicao interpolada entre inicio e fim
-          const baseX = cell.startX + (cell.endX - cell.startX) * easedProgress;
-          const baseY = cell.startY + (cell.endY - cell.startY) * easedProgress;
+        // Adicionar flutuacao quando nao esta formando o S
+        const settleProgress = Math.min(1, Math.max(0, (easedProgress - 0.2) / 0.8));
+        const floatAmount = 1 - settleProgress;
+        const floatX = Math.sin(time * cell.floatSpeed + cell.delay) * cell.floatOffsetX * floatAmount;
+        const floatY = Math.cos(time * cell.floatSpeed + cell.delay * 1.5) * cell.floatOffsetY * floatAmount;
 
-          // Adicionar flutuacao quando nao esta formando o S
-          const settleProgress = Math.min(1, Math.max(0, (easedProgress - 0.2) / 0.8));
-          const floatAmount = 1 - settleProgress;
-          const floatX = Math.sin(time * cell.floatSpeed + cell.delay) * cell.floatOffsetX * floatAmount;
-          const floatY = Math.cos(time * cell.floatSpeed + cell.delay * 1.5) * cell.floatOffsetY * floatAmount;
+        const wobbleIntensity = (0.15 + settleProgress * 0.35) * (cell.isMainCell ? 1 : 0.6);
+        const wobbleX = Math.sin(time * 0.7 + cell.id * 0.65) * wobbleIntensity;
+        const wobbleY = Math.cos(time * 0.8 + cell.id * 0.75) * wobbleIntensity * 0.85;
 
-          const wobbleIntensity = (0.15 + settleProgress * 0.35) * (cell.isMainCell ? 1 : 0.6);
-          const wobbleX = Math.sin(time * 0.7 + cell.id * 0.65) * wobbleIntensity;
-          const wobbleY = Math.cos(time * 0.8 + cell.id * 0.75) * wobbleIntensity * 0.85;
+        const x = baseX + floatX * 0.25 + wobbleX;
+        const y = baseY + floatY * 0.25 + wobbleY;
 
-          const x = baseX + floatX * 0.25 + wobbleX;
-          const y = baseY + floatY * 0.25 + wobbleY;
+        // Tamanho em pixels - sempre redondo
+        const sizeMultiplier = cell.isMainCell ? (1 - easedProgress * 0.3) : 1;
+        const size = cell.size * sizeMultiplier;
 
-          // Tamanho diminui ao formar o S para celulas principais
-          const sizeMultiplier = cell.isMainCell ? (1 - easedProgress * 0.3) : 1;
-          const size = (cell.size * sizeMultiplier) / 10;
+        // Opacidade - celulas do S bem visiveis
+        const baseOpacity = cell.isMainCell ? 0.6 : 0.2;
+        const opacity = baseOpacity + easedProgress * 0.3;
 
-          // Opacidade - celulas do S bem visiveis
-          const baseOpacity = cell.isMainCell ? 0.6 : 0.2;
-          const opacity = baseOpacity + easedProgress * 0.3;
+        // Celulas do S usam vmin (proporcao fixa), celulas de fundo usam % (cobrem tela)
+        const positionStyle = cell.isMainCell
+          ? {
+              left: `calc(50vw + ${(x - 50) * 1.2}vmin)`,
+              top: `calc(50vh + ${(y - 50) * 1.2}vmin)`,
+            }
+          : {
+              left: `${x}%`,
+              top: `${y}%`,
+            };
 
-          return (
-            <circle
-              key={cell.id}
-              cx={x}
-              cy={y}
-              r={size}
-              fill={cell.color === "primary" ? "url(#primaryGradient)" : "url(#accentGradient)"}
-              filter={cell.isMainCell ? "url(#cellBlurLight)" : "url(#cellBlur)"}
-              opacity={opacity}
-            />
-          );
-        })}
-      </svg>
+        return (
+          <div
+            key={cell.id}
+            className="absolute rounded-full"
+            style={{
+              ...positionStyle,
+              width: `${size}px`,
+              height: `${size}px`,
+              opacity,
+              background: cell.color === "primary"
+                ? "radial-gradient(circle at 30% 30%, oklch(0.55 0.22 300), oklch(0.45 0.18 300))"
+                : "radial-gradient(circle at 30% 30%, oklch(0.78 0.18 340), oklch(0.65 0.14 340))",
+              filter: cell.isMainCell ? "blur(6px)" : "blur(10px)",
+              transform: "translate(-50%, -50%)",
+            }}
+          />
+        );
+      })}
     </div>
   );
 }
