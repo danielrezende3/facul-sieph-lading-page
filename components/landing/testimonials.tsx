@@ -56,7 +56,7 @@ export function Team() {
           <span className="text-sm font-medium text-primary uppercase tracking-wider">
             Equipe
           </span>
-          <h2 className="mt-4 font-serif text-3xl sm:text-4xl font-bold text-foreground text-balance">
+          <h2 className="mt-4 font-display text-3xl sm:text-4xl font-bold text-foreground text-balance">
             As pessoas por tras do SIEHP
           </h2>
           <p className="mt-4 text-lg text-muted-foreground text-pretty">
@@ -69,7 +69,7 @@ export function Team() {
           {teamGroups.map((group) => (
             <div
               key={group.title}
-              className="relative bg-background rounded-2xl border border-border p-6 hover:shadow-lg hover:border-primary/30 transition-all"
+              className="relative bg-background/70 backdrop-blur-md rounded-2xl border border-border p-6 hover:shadow-xl hover:border-primary/40 transition-all"
             >
               {/* Header */}
               <div className="flex items-center gap-3 mb-6">

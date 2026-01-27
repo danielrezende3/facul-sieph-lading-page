@@ -14,7 +14,7 @@ export function Hero() {
               Plataforma educacional inovadora
             </div>
 
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-balance">
+            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-balance">
               O futuro do ensino em{" "}
               <span className="text-primary">Histologia</span> e{" "}
               <span className="text-accent">Patologia</span>

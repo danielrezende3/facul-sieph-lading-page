@@ -1,6 +1,6 @@
 "use client";
 
-import { Layers, BookOpen, ClipboardCheck, Microscope, Zap, Users } from "lucide-react";
+import { Layers, BookOpen, ClipboardCheck, Microscope, Users } from "lucide-react";
 
 function AtlasVisual() {
   return (
@@ -114,44 +114,6 @@ function MicroscopeVisual() {
   );
 }
 
-function AIVisual() {
-  return (
-    <div className="relative w-full h-full min-h-[200px] flex items-center justify-center overflow-hidden">
-      {/* Neural network visualization */}
-      <svg viewBox="0 0 200 150" className="w-full h-full">
-        {/* Connections */}
-        <line x1="40" y1="30" x2="100" y2="50" stroke="currentColor" className="text-primary/20" strokeWidth="1" />
-        <line x1="40" y1="75" x2="100" y2="50" stroke="currentColor" className="text-primary/20" strokeWidth="1" />
-        <line x1="40" y1="75" x2="100" y2="100" stroke="currentColor" className="text-primary/20" strokeWidth="1" />
-        <line x1="40" y1="120" x2="100" y2="100" stroke="currentColor" className="text-primary/20" strokeWidth="1" />
-        <line x1="100" y1="50" x2="160" y2="75" stroke="currentColor" className="text-accent/30" strokeWidth="1.5" />
-        <line x1="100" y1="100" x2="160" y2="75" stroke="currentColor" className="text-accent/30" strokeWidth="1.5" />
-        
-        {/* Input nodes */}
-        <circle cx="40" cy="30" r="8" fill="currentColor" className="text-muted-foreground/30" />
-        <circle cx="40" cy="75" r="8" fill="currentColor" className="text-muted-foreground/30" />
-        <circle cx="40" cy="120" r="8" fill="currentColor" className="text-muted-foreground/30" />
-        
-        {/* Hidden nodes */}
-        <circle cx="100" cy="50" r="10" fill="currentColor" className="text-primary/40" />
-        <circle cx="100" cy="100" r="10" fill="currentColor" className="text-primary/40" />
-        
-        {/* Output node */}
-        <circle cx="160" cy="75" r="12" fill="currentColor" className="text-accent/60" />
-        <circle cx="160" cy="75" r="6" fill="currentColor" className="text-accent" />
-      </svg>
-      
-      {/* Labels */}
-      <div className="absolute bottom-4 left-4 right-4">
-        <div className="flex items-center gap-2 text-xs">
-          <div className="flex-1 h-1 bg-gradient-to-r from-primary/40 to-accent/60 rounded" />
-          <span className="text-muted-foreground">Processando...</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function ManagementVisual() {
   return (
     <div className="relative w-full h-full min-h-[200px] p-4">
@@ -199,10 +161,10 @@ export function Features() {
         </div>
 
         {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[minmax(180px,auto)]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[minmax(180px,auto)]">
           
           {/* Atlas Virtual - Large card spanning 2 columns */}
-          <div className="md:col-span-2 lg:row-span-2 group relative p-6 rounded-3xl border border-border bg-background hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden">
+          <div className="md:col-span-2 lg:row-span-2 group relative p-6 rounded-3xl border border-border bg-background/70 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-primary/5 to-transparent rounded-full -translate-y-1/2 translate-x-1/2" />
             <div className="relative z-10">
               <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
@@ -218,7 +180,7 @@ export function Features() {
           </div>
 
           {/* Cursos */}
-          <div className="group relative p-6 rounded-3xl border border-border bg-background hover:border-primary/50 hover:shadow-xl transition-all duration-300">
+          <div className="group relative p-6 rounded-3xl border border-border bg-background/70 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300">
             <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-3">
               <BookOpen className="w-5 h-5 text-accent" />
             </div>
@@ -230,7 +192,7 @@ export function Features() {
           </div>
 
           {/* Quizzes */}
-          <div className="group relative p-6 rounded-3xl border border-border bg-background hover:border-primary/50 hover:shadow-xl transition-all duration-300">
+          <div className="group relative p-6 rounded-3xl border border-border bg-background/70 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300">
             <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
               <ClipboardCheck className="w-5 h-5 text-primary" />
             </div>
@@ -242,7 +204,7 @@ export function Features() {
           </div>
 
           {/* Simulador - Primary colored card */}
-          <div className="lg:col-span-1 group relative p-6 rounded-3xl bg-primary text-primary-foreground hover:shadow-xl transition-all duration-300 overflow-hidden">
+          <div className="lg:col-span-1 group relative p-6 rounded-3xl bg-primary/80 text-primary-foreground backdrop-blur-md hover:shadow-xl transition-all duration-300 overflow-hidden">
             <div className="absolute bottom-0 right-0 w-32 h-32 bg-primary-foreground/5 rounded-full translate-y-1/2 translate-x-1/2" />
             <div className="relative z-10 h-full flex flex-col">
               <div className="w-10 h-10 rounded-xl bg-primary-foreground/20 flex items-center justify-center mb-3">
@@ -258,25 +220,8 @@ export function Features() {
             </div>
           </div>
 
-          {/* IA Analysis */}
-          <div className="lg:col-span-1 group relative p-6 rounded-3xl border border-border bg-background hover:border-accent/50 hover:shadow-xl transition-all duration-300 overflow-hidden">
-            <div className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-accent/5 to-transparent rounded-full -translate-y-1/2 -translate-x-1/2" />
-            <div className="relative z-10 h-full flex flex-col">
-              <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-3">
-                <Zap className="w-5 h-5 text-accent" />
-              </div>
-              <h3 className="text-lg font-semibold text-foreground mb-1">Analise com IA</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                IA que auxilia na identificacao de estruturas.
-              </p>
-              <div className="flex-1">
-                <AIVisual />
-              </div>
-            </div>
-          </div>
-
           {/* Gestao - Wide card */}
-          <div className="md:col-span-2 group relative p-6 rounded-3xl border border-border bg-gradient-to-br from-background to-muted/30 hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden">
+          <div className="md:col-span-2 group relative p-6 rounded-3xl border border-border bg-gradient-to-br from-background/70 to-muted/30 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden">
             <div className="grid md:grid-cols-2 gap-4 h-full">
               <div className="flex flex-col justify-center">
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
