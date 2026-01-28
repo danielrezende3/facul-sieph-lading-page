@@ -156,7 +156,7 @@ export function Features() {
             Tudo o que sua instituição precisa para revolucionar o ensino
           </h2>
           <p className="mt-4 text-lg text-muted-foreground text-pretty">
-            Uma plataforma completa que integra visualização de lâminas, conteúdo
+            A plataforma completa que integra visualização de lâminas, conteúdo
             didático e avaliações em um único ambiente.
           </p>
         </div>
@@ -189,7 +189,7 @@ export function Features() {
                 <BookOpen className="w-5 h-5 text-accent" />
               </div>
               <h3 className="text-lg font-semibold text-foreground mb-1">Cursos Estruturados</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 Conteúdo pedagógico organizado por sistemas e patologias.
               </p>
               <CoursesVisual />
@@ -203,7 +203,7 @@ export function Features() {
                 <ClipboardCheck className="w-5 h-5 text-primary" />
               </div>
               <h3 className="text-lg font-semibold text-foreground mb-1">Quizzes Adaptativos</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 Avaliações que se adaptam ao nível do estudante.
               </p>
               <QuizVisual />
@@ -219,7 +219,7 @@ export function Features() {
                   <Microscope className="w-5 h-5 text-primary" />
                 </div>
                 <h3 className="text-lg font-semibold mb-1">Simulador de Microscópio</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   Experiência realista que replica o uso do microscópio óptico.
                 </p>
                 <div className="flex-1 flex items-center justify-center mt-2">

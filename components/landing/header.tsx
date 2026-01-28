@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 
@@ -13,7 +14,13 @@ export function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-2">
-            <img src="/s-ball.svg" alt="" className="w-8 h-8" />
+            <Image
+              src="/s-ball.svg"
+              alt=""
+              width={32}
+              height={32}
+              className="w-8 h-8"
+            />
             <span className="font-serif text-xl font-semibold text-foreground">
               SIEHP
             </span>

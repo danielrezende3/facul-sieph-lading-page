@@ -2,6 +2,7 @@
 
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Code, Lightbulb, Microscope } from "lucide-react";
+import Image from "next/image";
 import cauan from "@/assets/cauan-santos-silva.jpeg";
 import andre from "@/assets/andre-britto.png";
 import giovanny from "@/assets/giovanny.jpeg";
@@ -71,10 +72,10 @@ export function Team() {
             Equipe
           </span>
           <h2 className="mt-4 font-display text-3xl sm:text-4xl font-bold text-foreground text-balance">
-            As pessoas por trás do SIEHP
+            Quem faz o SIEHP acontecer
           </h2>
           <p className="mt-4 text-lg text-muted-foreground text-pretty">
-            Uma equipe multidisciplinar dedicada a transformar o ensino de
+            Conheça a equipe multidisciplinar dedicada a transformar o ensino de
             histologia e patologia no Brasil.
           </p>
         </div>
@@ -119,9 +120,11 @@ export function Team() {
                     className="flex items-center gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors"
                   >
                     {member.image ? (
-                      <img
+                      <Image
                         src={member.image.src}
                         alt={member.name}
+                        width={36}
+                        height={36}
                         className="w-9 h-9 rounded-full object-cover"
                       />
                     ) : (

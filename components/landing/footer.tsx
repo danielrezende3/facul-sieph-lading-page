@@ -1,5 +1,6 @@
 import React from "react"
 import Link from "next/link";
+import Image from "next/image";
 
 const footerLinks = {
   produto: [
@@ -34,9 +35,27 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-12">
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-3">
-              <img src="/dcomp-logo.png" alt="dcomp" className="h-20" />
-              <img src="/ufs-logo.png" alt="UFS" className="h-20" />
-              <img src="/s-ball.svg" alt="" className="w-8 h-20" />
+              <Image
+                src="/dcomp-logo.png"
+                alt="dcomp"
+                width={1207}
+                height={1228}
+                className="h-20 w-auto"
+              />
+              <Image
+                src="/ufs-logo.png"
+                alt="UFS"
+                width={3284}
+                height={1465}
+                className="h-20 w-auto"
+              />
+              <Image
+                src="/s-ball.svg"
+                alt=""
+                width={32}
+                height={80}
+                className="h-20 w-auto"
+              />
               <span className="font-serif text-xl font-semibold text-background">
                 SIEHP
               </span>
