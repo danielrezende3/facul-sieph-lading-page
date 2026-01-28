@@ -34,7 +34,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-12">
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-3">
+            <Link href="/" className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
               <Image
                 src="/dcomp-logo.png"
                 alt="dcomp"
@@ -49,15 +49,17 @@ export function Footer() {
                 height={1465}
                 className="h-20 w-auto"
               />
-              <Image
-                src="/s-ball.svg"
-                alt=""
-                width={32}
-                height={80}
-                className="h-20 w-auto"
-              />
-              <span className="font-serif text-xl font-semibold text-background">
-                SIEHP
+              <span className="flex items-center gap-3">
+                <Image
+                  src="/s-ball.svg"
+                  alt=""
+                  width={32}
+                  height={80}
+                  className="h-20 w-auto"
+                />
+                <span className="font-serif text-xl font-semibold text-background">
+                  SIEHP
+                </span>
               </span>
             </Link>
             <p className="mt-4 text-sm text-background/70 max-w-xs">
