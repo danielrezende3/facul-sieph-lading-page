@@ -1,7 +1,17 @@
 "use client";
 
-import { StaggerContainer, StaggerItem } from "@/components/ui/stagger-container";
-import { Layers, BookOpen, ClipboardCheck, Microscope, Users } from "lucide-react";
+import { useState } from "react";
+import {
+  StaggerContainer,
+  StaggerItem,
+} from "@/components/ui/stagger-container";
+import {
+  Layers,
+  BookOpen,
+  ClipboardCheck,
+  Microscope,
+  Users,
+} from "lucide-react";
 
 function AtlasVisual() {
   return (
@@ -14,20 +24,78 @@ function AtlasVisual() {
           <div className="w-32 h-20 bg-card rounded-lg border border-border shadow-lg flex items-center justify-center">
             {/* Cell pattern */}
             <svg viewBox="0 0 100 60" className="w-28 h-16">
-              <circle cx="25" cy="20" r="12" fill="none" stroke="currentColor" className="text-primary/40" strokeWidth="1.5" />
-              <circle cx="25" cy="20" r="5" fill="currentColor" className="text-primary/60" />
-              <circle cx="55" cy="35" r="10" fill="none" stroke="currentColor" className="text-accent/40" strokeWidth="1.5" />
-              <circle cx="55" cy="35" r="4" fill="currentColor" className="text-accent/60" />
-              <circle cx="75" cy="15" r="8" fill="none" stroke="currentColor" className="text-primary/30" strokeWidth="1.5" />
-              <circle cx="75" cy="15" r="3" fill="currentColor" className="text-primary/50" />
-              <circle cx="40" cy="45" r="7" fill="none" stroke="currentColor" className="text-accent/30" strokeWidth="1.5" />
-              <circle cx="40" cy="45" r="3" fill="currentColor" className="text-accent/50" />
+              <circle
+                cx="25"
+                cy="20"
+                r="12"
+                fill="none"
+                stroke="currentColor"
+                className="text-primary/40"
+                strokeWidth="1.5"
+              />
+              <circle
+                cx="25"
+                cy="20"
+                r="5"
+                fill="currentColor"
+                className="text-primary/60"
+              />
+              <circle
+                cx="55"
+                cy="35"
+                r="10"
+                fill="none"
+                stroke="currentColor"
+                className="text-accent/40"
+                strokeWidth="1.5"
+              />
+              <circle
+                cx="55"
+                cy="35"
+                r="4"
+                fill="currentColor"
+                className="text-accent/60"
+              />
+              <circle
+                cx="75"
+                cy="15"
+                r="8"
+                fill="none"
+                stroke="currentColor"
+                className="text-primary/30"
+                strokeWidth="1.5"
+              />
+              <circle
+                cx="75"
+                cy="15"
+                r="3"
+                fill="currentColor"
+                className="text-primary/50"
+              />
+              <circle
+                cx="40"
+                cy="45"
+                r="7"
+                fill="none"
+                stroke="currentColor"
+                className="text-accent/30"
+                strokeWidth="1.5"
+              />
+              <circle
+                cx="40"
+                cy="45"
+                r="3"
+                fill="currentColor"
+                className="text-accent/50"
+              />
             </svg>
           </div>
         </div>
       </div>
       {/* Decorative elements */}
-      <div className="absolute top-2 right-2 text-xs font-mono text-muted-foreground/50">400x</div>
+      <div className="absolute top-2 right-2 text-xs font-mono text-muted-foreground/50">
+        400x
+      </div>
       <div className="absolute bottom-2 left-2 flex gap-1">
         <div className="w-1.5 h-1.5 rounded-full bg-primary/40" />
         <div className="w-1.5 h-1.5 rounded-full bg-accent/40" />
@@ -48,12 +116,14 @@ function CoursesVisual() {
         ].map((course, i) => (
           <div key={i} className="flex items-center gap-3">
             <div className="flex-1 h-2 bg-muted rounded-full overflow-hidden">
-              <div 
+              <div
                 className="h-full bg-linear-to-r from-primary to-accent rounded-full transition-all"
                 style={{ width: `${course.progress}%` }}
               />
             </div>
-            <span className="text-xs text-muted-foreground w-8">{course.progress}%</span>
+            <span className="text-xs text-muted-foreground w-8">
+              {course.progress}%
+            </span>
           </div>
         ))}
       </div>
@@ -62,23 +132,54 @@ function CoursesVisual() {
 }
 
 function QuizVisual() {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const options = [
+    "Célula epitelial escamosa",
+    "Célula colunar ciliada",
+    "Célula caliciforme",
+  ];
+
   return (
     <div className="relative w-full h-32 mt-4 overflow-hidden rounded-xl">
       <div className="space-y-2">
-        <div className="flex items-center gap-2 p-2 rounded-lg bg-primary/10 border border-primary/20">
-          <div className="w-4 h-4 rounded-full border-2 border-primary flex items-center justify-center">
-            <div className="w-2 h-2 rounded-full bg-primary" />
-          </div>
-          <span className="text-xs text-foreground">Célula epitelial escamosa</span>
-        </div>
-        <div className="flex items-center gap-2 p-2 rounded-lg bg-muted/50 border border-border">
-          <div className="w-4 h-4 rounded-full border-2 border-muted-foreground/30" />
-          <span className="text-xs text-muted-foreground">Célula colunar ciliada</span>
-        </div>
-        <div className="flex items-center gap-2 p-2 rounded-lg bg-muted/50 border border-border">
-          <div className="w-4 h-4 rounded-full border-2 border-muted-foreground/30" />
-          <span className="text-xs text-muted-foreground">Célula caliciforme</span>
-        </div>
+        {options.map((option, index) => {
+          const isSelected = selectedIndex === index;
+
+          return (
+            <button
+              key={option}
+              type="button"
+              onClick={() => setSelectedIndex(index)}
+              aria-pressed={isSelected}
+              className={
+                isSelected
+                  ? "flex w-full items-center gap-2 rounded-lg border border-primary/20 bg-primary/10 p-2 text-left"
+                  : "flex w-full items-center gap-2 rounded-lg border border-border bg-muted/50 p-2 text-left"
+              }
+            >
+              <div
+                className={
+                  isSelected
+                    ? "flex h-4 w-4 items-center justify-center rounded-full border-2 border-primary"
+                    : "h-4 w-4 rounded-full border-2 border-muted-foreground/30"
+                }
+              >
+                {isSelected ? (
+                  <div className="h-2 w-2 rounded-full bg-primary" />
+                ) : null}
+              </div>
+              <span
+                className={
+                  isSelected
+                    ? "text-xs text-foreground"
+                    : "text-xs text-muted-foreground"
+                }
+              >
+                {option}
+              </span>
+            </button>
+          );
+        })}
       </div>
     </div>
   );
@@ -91,22 +192,86 @@ function MicroscopeVisual() {
         {/* Microscope body */}
         <svg viewBox="0 0 120 140" className="w-32 h-40">
           {/* Base */}
-          <ellipse cx="60" cy="130" rx="45" ry="8" fill="currentColor" className="text-foreground/10" />
+          <ellipse
+            cx="60"
+            cy="130"
+            rx="45"
+            ry="8"
+            fill="currentColor"
+            className="text-foreground/10"
+          />
           {/* Stand */}
-          <rect x="55" y="45" width="10" height="85" rx="2" fill="currentColor" className="text-foreground/20" />
+          <rect
+            x="55"
+            y="45"
+            width="10"
+            height="85"
+            rx="2"
+            fill="currentColor"
+            className="text-foreground/20"
+          />
           {/* Arm */}
-          <path d="M55 45 Q55 20 75 20 L95 20 Q100 20 100 25 L100 55 Q100 60 95 60 L65 60" 
-                fill="currentColor" className="text-foreground/20" />
+          <path
+            d="M55 45 Q55 20 75 20 L95 20 Q100 20 100 25 L100 55 Q100 60 95 60 L65 60"
+            fill="currentColor"
+            className="text-foreground/20"
+          />
           {/* Eyepiece */}
-          <rect x="85" y="5" width="15" height="25" rx="3" fill="currentColor" className="text-primary/60" />
-          <rect x="88" y="2" width="9" height="5" rx="1" fill="currentColor" className="text-primary/80" />
+          <rect
+            x="85"
+            y="5"
+            width="15"
+            height="25"
+            rx="3"
+            fill="currentColor"
+            className="text-primary/60"
+          />
+          <rect
+            x="88"
+            y="2"
+            width="9"
+            height="5"
+            rx="1"
+            fill="currentColor"
+            className="text-primary/80"
+          />
           {/* Objective lenses */}
-          <circle cx="60" cy="75" r="8" fill="currentColor" className="text-accent/60" />
-          <rect x="56" y="75" width="8" height="15" rx="2" fill="currentColor" className="text-accent/60" />
+          <circle
+            cx="60"
+            cy="75"
+            r="8"
+            fill="currentColor"
+            className="text-accent/60"
+          />
+          <rect
+            x="56"
+            y="75"
+            width="8"
+            height="15"
+            rx="2"
+            fill="currentColor"
+            className="text-accent/60"
+          />
           {/* Stage */}
-          <rect x="35" y="90" width="50" height="6" rx="1" fill="currentColor" className="text-foreground/15" />
+          <rect
+            x="35"
+            y="90"
+            width="50"
+            height="6"
+            rx="1"
+            fill="currentColor"
+            className="text-foreground/15"
+          />
           {/* Slide */}
-          <rect x="45" y="88" width="30" height="4" rx="0.5" fill="currentColor" className="text-primary/30" />
+          <rect
+            x="45"
+            y="88"
+            width="30"
+            height="4"
+            rx="0.5"
+            fill="currentColor"
+            className="text-primary/30"
+          />
         </svg>
         {/* Glow effect */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-primary/10 rounded-full blur-xl" />
@@ -131,8 +296,8 @@ function ManagementVisual() {
         <div className="col-span-2 bg-muted/50 rounded-lg p-3">
           <div className="flex justify-between items-end h-full gap-1">
             {[40, 65, 45, 80, 55, 90, 70].map((h, i) => (
-              <div 
-                key={i} 
+              <div
+                key={i}
                 className="flex-1 bg-linear-to-t from-primary/60 to-accent/60 rounded-t"
                 style={{ height: `${h}%` }}
               />
@@ -163,19 +328,24 @@ export function Features() {
 
         {/* Bento Grid */}
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[minmax(180px,auto)]">
-          
           {/* Atlas Virtual - Large card spanning 2 columns */}
-          <StaggerItem className="md:col-span-2 lg:row-span-2 group relative rounded-3xl border border-border bg-background/70 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-90" innerClassName="h-full">
+          <StaggerItem
+            className="md:col-span-2 lg:row-span-2 group relative rounded-3xl border border-border bg-background/70 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-90"
+            innerClassName="h-full"
+          >
             <div className="relative h-full p-6">
               <div className="absolute top-0 right-0 w-64 h-64 bg-linear-to-bl from-primary/5 to-transparent rounded-full -translate-y-1/2 translate-x-1/2" />
               <div className="relative z-10">
                 <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
                   <Layers className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-2">Atlas Virtual de Lâminas</h3>
+                <h3 className="text-xl font-semibold text-foreground mb-2">
+                  Atlas Virtual de Lâminas
+                </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                  Acesso a mais de 10.000 lâminas histológicas digitalizadas em alta resolução. 
-                  Navegue com zoom de até 400x e ferramentas de anotação integradas.
+                  Acesso a mais de 10.000 lâminas histológicas digitalizadas em
+                  alta resolução. Navegue com zoom de até 400x e ferramentas de
+                  anotação integradas.
                 </p>
                 <AtlasVisual />
               </div>
@@ -183,12 +353,17 @@ export function Features() {
           </StaggerItem>
 
           {/* Cursos */}
-          <StaggerItem className="group relative rounded-3xl border border-border bg-background/70 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-60" innerClassName="h-full">
+          <StaggerItem
+            className="group relative rounded-3xl border border-border bg-background/70 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-60"
+            innerClassName="h-full"
+          >
             <div className="h-full p-6">
               <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center mb-3">
                 <BookOpen className="w-5 h-5 text-accent" />
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-1">Cursos Estruturados</h3>
+              <h3 className="text-lg font-semibold text-foreground mb-1">
+                Cursos Estruturados
+              </h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Conteúdo pedagógico organizado por sistemas e patologias.
               </p>
@@ -197,12 +372,17 @@ export function Features() {
           </StaggerItem>
 
           {/* Quizzes */}
-          <StaggerItem className="group relative rounded-3xl border border-border bg-background/70 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-60" innerClassName="h-full">
+          <StaggerItem
+            className="group relative rounded-3xl border border-border bg-background/70 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-60"
+            innerClassName="h-full"
+          >
             <div className="h-full p-6">
               <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
                 <ClipboardCheck className="w-5 h-5 text-primary" />
               </div>
-              <h3 className="text-lg font-semibold text-foreground mb-1">Quizzes Adaptativos</h3>
+              <h3 className="text-lg font-semibold text-foreground mb-1">
+                Quizzes Adaptativos
+              </h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Avaliações que se adaptam ao nível do estudante.
               </p>
@@ -211,14 +391,19 @@ export function Features() {
           </StaggerItem>
 
           {/* Simulador - Primary colored card */}
-          <StaggerItem className="lg:col-span-1 group relative rounded-3xl border border-border bg-background/70 backdrop-blur-md text-foreground hover:border-primary/40 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-65" innerClassName="h-full">
+          <StaggerItem
+            className="lg:col-span-1 group relative rounded-3xl border border-border bg-background/70 backdrop-blur-md text-foreground hover:border-primary/40 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-65"
+            innerClassName="h-full"
+          >
             <div className="relative h-full p-6">
               <div className="absolute bottom-0 right-0 w-32 h-32 bg-primary-foreground/5 rounded-full translate-y-1/2 translate-x-1/2" />
               <div className="relative z-10 h-full flex flex-col">
                 <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
                   <Microscope className="w-5 h-5 text-primary" />
                 </div>
-                <h3 className="text-lg font-semibold mb-1">Simulador de Microscópio</h3>
+                <h3 className="text-lg font-semibold mb-1">
+                  Simulador de Microscópio
+                </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Experiência realista que replica o uso do microscópio óptico.
                 </p>
@@ -230,24 +415,29 @@ export function Features() {
           </StaggerItem>
 
           {/* Gestão - Wide card */}
-          <StaggerItem className="md:col-span-2 group relative rounded-3xl border border-border bg-linear-to-br from-background/70 to-muted/30 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-65" innerClassName="h-full">
+          <StaggerItem
+            className="md:col-span-2 group relative rounded-3xl border border-border bg-linear-to-br from-background/70 to-muted/30 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-65"
+            innerClassName="h-full"
+          >
             <div className="h-full p-6">
               <div className="grid md:grid-cols-2 gap-4 h-full">
                 <div className="flex flex-col justify-center">
                   <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
                     <Users className="w-5 h-5 text-primary" />
                   </div>
-                  <h3 className="text-lg font-semibold text-foreground mb-2">Gestão Institucional</h3>
+                  <h3 className="text-lg font-semibold text-foreground mb-2">
+                    Gestão Institucional
+                  </h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Painel administrativo completo para acompanhar o progresso dos alunos, 
-                    criar turmas e gerar relatórios de desempenho detalhados.
+                    Painel administrativo completo para acompanhar o progresso
+                    dos alunos, criar turmas e gerar relatórios de desempenho
+                    detalhados.
                   </p>
                 </div>
                 <ManagementVisual />
               </div>
             </div>
           </StaggerItem>
-
         </StaggerContainer>
       </div>
     </section>
