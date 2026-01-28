@@ -32,10 +32,11 @@ export function Footer() {
     <footer className="bg-foreground text-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-12">
-          {/* Brand */}
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2">
-              <img src="/Balls.svg" alt="" className="w-8 h-8" />
+            <Link href="/" className="flex items-center gap-3">
+              <img src="/dcomp-logo.png" alt="dcomp" className="h-20" />
+              <img src="/ufs-logo.png" alt="UFS" className="h-20" />
+              <img src="/s-ball.svg" alt="" className="w-8 h-20" />
               <span className="font-serif text-xl font-semibold text-background">
                 SIEHP
               </span>
@@ -46,7 +47,6 @@ export function Footer() {
             </p>
           </div>
 
-          {/* Links */}
           <div>
             <h3 className="text-sm font-semibold text-background mb-4">
               Produto
@@ -120,7 +120,7 @@ export function Footer() {
 
         <div className="mt-12 pt-8 border-t border-background/20 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-background/50">
-            2026 SIEHP. Todos os direitos reservados.
+            Desenvolvido em parceria com a UFS. Todos os direitos reservados.
           </p>
           <div className="flex items-center gap-4">
             <SocialLink href="#" label="LinkedIn">

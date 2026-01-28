@@ -20,16 +20,16 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/Balls.svg",
+        url: "/s-ball.svg",
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: "/Balls.svg",
+        url: "/s-ball.svg",
 
         media: "(prefers-color-scheme: dark)",
       },
       {
-        url: "/Balls.svg",
+        url: "/s-ball.svg",
 
         type: "image/svg+xml",
       },
