@@ -34,7 +34,10 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-12 text-center md:text-left">
           <div className="lg:col-span-2 flex flex-col items-center md:items-start">
-            <Link href="/" className="flex flex-col items-center gap-3 sm:flex-row sm:items-center">
+            <Link
+              href="/"
+              className="flex flex-col items-center gap-3 sm:flex-row sm:items-center"
+            >
               <Image
                 src="/dcomp-logo.png"
                 alt="dcomp"
