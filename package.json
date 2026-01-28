@@ -5,8 +5,11 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "lint": "eslint .",
-    "start": "next start"
+    "start": "next start",
+    "check:type": "tsc --noEmit",
+    "check:lint": "eslint .",
+    "check:all": "pnpm run check:type && pnpm run check:lint",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -68,7 +71,9 @@
     "@types/react-dom": "19.2.3",
     "eslint": "^9.39.2",
     "eslint-config-next": "^16.1.6",
+    "eslint-config-prettier": "^10.1.8",
     "postcss": "^8.5",
+    "prettier": "^3.8.1",
     "tailwindcss": "^4.1.9",
     "tw-animate-css": "1.3.3",
     "typescript": "^5"

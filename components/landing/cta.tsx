@@ -6,8 +6,10 @@ import { ArrowRight, Mail, Phone } from "lucide-react";
 
 export function CTA() {
   return (
-    <section id="contact" className="py-24 bg-transparent relative overflow-hidden">
-
+    <section
+      id="contact"
+      className="py-24 bg-transparent relative overflow-hidden"
+    >
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <ScrollReveal>
           <span className="text-sm font-medium text-primary uppercase tracking-wider">

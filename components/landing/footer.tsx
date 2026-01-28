@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -61,8 +61,8 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-4 text-sm text-background/70 max-w-xs">
-              Sistema Integrado de Ensino à Histologia e Patologia. Transformando
-              a educação médica através da tecnologia.
+              Sistema Integrado de Ensino à Histologia e Patologia.
+              Transformando a educação médica através da tecnologia.
             </p>
           </div>
 
@@ -121,7 +121,9 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-semibold text-background mb-4">Legal</h3>
+            <h3 className="text-sm font-semibold text-background mb-4">
+              Legal
+            </h3>
             <ul className="space-y-3">
               {footerLinks.legal.map((link) => (
                 <li key={link.label}>

@@ -14,8 +14,8 @@ export function Demo() {
             Conheça o SIEHP em ação
           </h2>
           <p className="mt-4 text-lg text-muted-foreground text-pretty">
-            Assista ao nosso vídeo e descubra como o SIEHP pode transformar o ensino
-            de histologia e patologia na sua instituição.
+            Assista ao nosso vídeo e descubra como o SIEHP pode transformar o
+            ensino de histologia e patologia na sua instituição.
           </p>
         </div>
 
@@ -25,7 +25,7 @@ export function Demo() {
             {/* Decorative elements */}
             <div className="absolute -top-20 -right-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
-            
+
             {/* Video wrapper */}
             <div className="relative aspect-video bg-foreground/5">
               <iframe
