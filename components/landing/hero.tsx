@@ -6,9 +6,9 @@ import { ArrowRight, Play } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <section className="relative min-h-[80vh] sm:min-h-screen flex items-center justify-center overflow-hidden pt-16 sm:pt-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="text-center lg:text-left">
             <ScrollReveal>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary text-secondary-foreground text-sm mb-6">
@@ -18,7 +18,7 @@ export function Hero() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.1}>
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-balance">
+              <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-balance">
                 O futuro do ensino em{" "}
                 <span className="text-primary">Histologia</span> e{" "}
                 <span className="text-accent">Patologia</span>
@@ -26,7 +26,7 @@ export function Hero() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.2}>
-              <p className="mt-6 text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 text-pretty">
+              <p className="mt-5 sm:mt-6 text-base sm:text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 text-pretty">
                 Sistema integrado que transforma a experiência de aprendizado
                 com atlas virtual de lâminas, cursos interativos e avaliações
                 inteligentes para sua instituição.
@@ -34,21 +34,21 @@ export function Hero() {
             </ScrollReveal>
 
             <ScrollReveal delay={0.4}>
-              <div className="mt-12 flex items-center gap-8 justify-center lg:justify-start">
+              <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row items-center gap-6 sm:gap-8 justify-center lg:justify-start">
                 <div className="text-center">
                   <p className="text-3xl font-bold text-foreground">50+</p>
                   <p className="text-sm text-muted-foreground">
                     Instituições parceiras
                   </p>
                 </div>
-                <div className="w-px h-12 bg-border" />
+                <div className="hidden sm:block w-px h-12 bg-border" />
                 <div className="text-center">
                   <p className="text-3xl font-bold text-foreground">10.000+</p>
                   <p className="text-sm text-muted-foreground">
                     Lâminas digitalizadas
                   </p>
                 </div>
-                <div className="w-px h-12 bg-border" />
+                <div className="hidden sm:block w-px h-12 bg-border" />
                 <div className="text-center">
                   <p className="text-3xl font-bold text-foreground">98%</p>
                   <p className="text-sm text-muted-foreground">Satisfação</p>
@@ -58,12 +58,12 @@ export function Hero() {
           </div>
 
           <ScrollReveal delay={0.2} direction="right">
-            <div className="relative">
+            <div className="relative max-w-md mx-auto lg:max-w-none">
               <div className="relative bg-card rounded-2xl border border-border shadow-2xl overflow-hidden">
-                <div className="aspect-4/3 bg-muted p-6 flex items-center justify-center">
+                <div className="aspect-4/3 bg-muted p-4 sm:p-6 flex items-center justify-center">
                   <MicroscopeView />
                 </div>
-                <div className="absolute bottom-4 left-4 right-4 bg-background/90 backdrop-blur-sm rounded-xl p-4 border border-border">
+                <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 bg-background/90 backdrop-blur-sm rounded-xl p-3 sm:p-4 border border-border">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
                       <div className="w-3 h-3 rounded-full bg-primary" />
@@ -80,7 +80,7 @@ export function Hero() {
                 </div>
               </div>
 
-              <div className="absolute -top-4 -right-4 bg-card rounded-xl border border-border p-3 shadow-lg">
+              <div className="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 bg-card rounded-xl border border-border p-3 shadow-lg">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                   <span className="text-xs text-muted-foreground">

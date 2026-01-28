@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "next build",
-    "dev": "next dev",
-    "start": "next start",
+    "dev:start": "next dev",
+    "prod:build": "next build",
+    "prod:start": "next start",
     "check:type": "tsc --noEmit",
     "check:lint": "eslint .",
     "check:all": "pnpm run check:type && pnpm run check:lint",
