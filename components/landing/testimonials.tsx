@@ -16,6 +16,7 @@ import debora from "@/assets/debora.jpg";
 import erika from "@/assets/erika-de-abreu-costa-brito.jpg";
 import celso from "@/assets/celso-de-barros.jpg";
 import carlos from "@/assets/carlos-daniel.jpeg";
+import guilherme from "@/assets/guilherme.jpeg";
 
 const teamGroups = [
   {
@@ -25,7 +26,7 @@ const teamGroups = [
     members: [
       { name: "Cauan Santos Silva", image: cauan },
       { name: "Carlos Daniel Rezende Euzébio", image: carlos },
-      { name: "Guilherme Argolo Queiroz de Freitas", image: giovanny },
+      { name: "Guilherme Argolo Queiroz de Freitas", image: guilherme },
       { name: "Jairo de Santana Dantas", image: jairo },
       { name: "Joao Paulo Mendonca Andrade", image: joao },
       { name: "Marlisson dos Anjos Monte", image: marlisson },

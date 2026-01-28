@@ -32,9 +32,9 @@ export function Footer() {
   return (
     <footer className="bg-foreground text-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-12">
-          <div className="lg:col-span-2">
-            <Link href="/" className="flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+        <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-12 text-center md:text-left">
+          <div className="lg:col-span-2 flex flex-col items-center md:items-start">
+            <Link href="/" className="flex flex-col items-center gap-3 sm:flex-row sm:items-center">
               <Image
                 src="/dcomp-logo.png"
                 alt="dcomp"
@@ -62,86 +62,88 @@ export function Footer() {
                 </span>
               </span>
             </Link>
-            <p className="mt-4 text-sm text-background/70 max-w-xs">
+            <p className="mt-4 text-sm text-background/70 max-w-xs mx-auto md:mx-0">
               Sistema Integrado de Ensino à Histologia e Patologia.
               Transformando a educação médica através da tecnologia.
             </p>
           </div>
 
-          <div>
-            <h3 className="text-sm font-semibold text-background mb-4">
-              Produto
-            </h3>
-            <ul className="space-y-3">
-              {footerLinks.produto.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-background/70 hover:text-background transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <div className="lg:col-span-4 lg:pl-12 xl:pl-16 grid gap-12 grid-cols-2 lg:grid-cols-4 justify-items-start text-left">
+            <div className="text-left">
+              <h3 className="text-sm font-semibold text-background mb-4">
+                Produto
+              </h3>
+              <ul className="space-y-3">
+                {footerLinks.produto.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-background/70 hover:text-background transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div>
-            <h3 className="text-sm font-semibold text-background mb-4">
-              Empresa
-            </h3>
-            <ul className="space-y-3">
-              {footerLinks.empresa.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-background/70 hover:text-background transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+            <div className="text-left">
+              <h3 className="text-sm font-semibold text-background mb-4">
+                Empresa
+              </h3>
+              <ul className="space-y-3">
+                {footerLinks.empresa.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-background/70 hover:text-background transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div>
-            <h3 className="text-sm font-semibold text-background mb-4">
-              Suporte
-            </h3>
-            <ul className="space-y-3">
-              {footerLinks.suporte.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-background/70 hover:text-background transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+            <div className="text-left">
+              <h3 className="text-sm font-semibold text-background mb-4">
+                Suporte
+              </h3>
+              <ul className="space-y-3">
+                {footerLinks.suporte.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-background/70 hover:text-background transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div>
-            <h3 className="text-sm font-semibold text-background mb-4">
-              Legal
-            </h3>
-            <ul className="space-y-3">
-              {footerLinks.legal.map((link) => (
-                <li key={link.label}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-background/70 hover:text-background transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <div className="text-left">
+              <h3 className="text-sm font-semibold text-background mb-4">
+                Legal
+              </h3>
+              <ul className="space-y-3">
+                {footerLinks.legal.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-sm text-background/70 hover:text-background transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-background/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 pt-8 border-t border-background/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <p className="text-sm text-background/50">
             Desenvolvido em parceria com a UFS. Todos os direitos reservados.
           </p>
