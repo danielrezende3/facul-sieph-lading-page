@@ -2,6 +2,19 @@
 
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { Code, Lightbulb, Microscope } from "lucide-react";
+import cauan from "@/assets/cauan-santos-silva.jpeg";
+import andre from "@/assets/andre-britto.png";
+import giovanny from "@/assets/giovanny.jpeg";
+import jairo from "@/assets/jairo.jpeg";
+import joao from "@/assets/joao-paulo-mendonca.jpeg";
+import marlisson from "@/assets/marlisson.jpeg";
+import ryller from "@/assets/ryller.jpeg";
+import vitor from "@/assets/vitor-manuel.jpeg";
+import adicineia from "@/assets/adicineia-aparecida-de-oliveira.png";
+import debora from "@/assets/debora.jpg";
+import erika from "@/assets/erika-de-abreu-costa-brito.jpg";
+import celso from "@/assets/celso-de-barros.jpg";
+import carlos from "@/assets/carlos-daniel.jpeg";
 
 const teamGroups = [
   {
@@ -9,14 +22,14 @@ const teamGroups = [
     icon: Code,
     color: "primary",
     members: [
-      "Cauan Santos Silva",
-      "Carlos Daniel Rezende",
-      "Guilherme Argolo",
-      "Jairo de Santana Dantas",
-      "Joao Paulo Mendonca",
-      "Marlisson",
-      "Marcus Ryller",
-      "Vitor Manoel Santos Moura",
+      { name: "Cauan Santos Silva", image: cauan },
+      { name: "Carlos Daniel Rezende Euzébio", image: carlos },
+      { name: "Guilherme Argolo Queiroz de Freitas", image: giovanny },
+      { name: "Jairo de Santana Dantas", image: jairo },
+      { name: "Joao Paulo Mendonca Andrade", image: joao },
+      { name: "Marlisson dos Anjos Monte", image: marlisson },
+      { name: "Marcus Ryller Fonseca Amado dos Santos", image: ryller },
+      { name: "Vitor Manoel Santos Moura", image: vitor },
     ],
   },
   {
@@ -24,10 +37,10 @@ const teamGroups = [
     icon: Lightbulb,
     color: "accent",
     members: [
-      "Andre",
-      "Adicenia",
-      "Chubaca",
-      "Ipsum lorem",
+      { name: "Andre Britto de Carvalho", image: andre },
+      { name: "Adicineia Aparecida de Oliveira", image: adicineia },
+      { name: "Giovanny Fernando Lucero Palma", image: giovanny },
+      { name: "Debora Maria Coelho Nascimento", image: debora },
     ],
   },
   {
@@ -35,8 +48,8 @@ const teamGroups = [
     icon: Microscope,
     color: "primary",
     members: [
-      "Erika de Abreu Costa Brito",
-      "Celso de Barros",
+      { name: "Erika de Abreu Costa Brito", image: erika },
+      { name: "Celso de Barros", image: celso },
     ],
   },
 ];
@@ -72,7 +85,7 @@ export function Team() {
               key={group.title}
               direction={index % 2 === 0 ? "left" : "right"}
               delay={index * 0.1}
-              className="relative rounded-2xl border border-border bg-background/70 backdrop-blur-md hover:shadow-xl hover:border-primary/40 transition-all overflow-hidden min-h-[320px]"
+              className="relative rounded-2xl border border-border bg-background/70 backdrop-blur-md hover:shadow-xl hover:border-primary/40 transition-all overflow-hidden min-h-80"
               innerClassName="h-full p-6"
             >
               {/* Header */}
@@ -93,28 +106,38 @@ export function Team() {
                     {group.title}
                   </h3>
                   <p className="text-xs text-muted-foreground">
-                    {group.members.length} {group.members.length === 1 ? "membro" : "membros"}
+                    {group.members.length}{" "}
+                    {group.members.length === 1 ? "membro" : "membros"}
                   </p>
                 </div>
               </div>
 
-              {/* Members */}
               <div className="space-y-3">
                 {group.members.map((member) => (
                   <div
-                    key={member}
+                    key={member.name}
                     className="flex items-center gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors"
                   >
-                    <div
-                      className={`w-9 h-9 rounded-full flex items-center justify-center text-xs font-semibold ${
-                        group.color === "primary"
-                          ? "bg-primary/10 text-primary"
-                          : "bg-accent/10 text-accent"
-                      }`}
-                    >
-                      {getInitials(member)}
-                    </div>
-                    <span className="text-sm text-foreground">{member}</span>
+                    {member.image ? (
+                      <img
+                        src={member.image.src}
+                        alt={member.name}
+                        className="w-9 h-9 rounded-full object-cover"
+                      />
+                    ) : (
+                      <div
+                        className={`w-9 h-9 rounded-full flex items-center justify-center text-xs font-semibold ${
+                          group.color === "primary"
+                            ? "bg-primary/10 text-primary"
+                            : "bg-accent/10 text-accent"
+                        }`}
+                      >
+                        {getInitials(member.name)}
+                      </div>
+                    )}
+                    <span className="text-sm text-foreground">
+                      {member.name}
+                    </span>
                   </div>
                 ))}
               </div>
