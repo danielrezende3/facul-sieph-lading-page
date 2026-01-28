@@ -63,6 +63,9 @@ export function Header() {
             type="button"
             className="md:hidden p-2"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-nav"
           >
             {isMenuOpen ? (
               <X className="w-6 h-6 text-foreground" />
@@ -73,7 +76,10 @@ export function Header() {
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
+          <div
+            id="mobile-nav"
+            className="md:hidden py-4 border-t border-border"
+          >
             <nav className="flex flex-col gap-4">
               <Link
                 href="#features"
