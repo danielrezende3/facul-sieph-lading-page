@@ -30,7 +30,7 @@ export function Demo() {
             <div className="relative aspect-video bg-foreground/5">
               <iframe
                 className="absolute inset-0 h-full w-full"
-                src="https://www.youtube.com/embed/DXERpUAzaro"
+                src="https://www.youtube.com/embed/NpEaa2P7qZI"
                 title="SIEHP - Pitch 2024"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
                 allowFullScreen
