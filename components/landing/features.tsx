@@ -11,13 +11,35 @@ import {
   ClipboardCheck,
   Microscope,
   Users,
+  ZoomIn,
+  ZoomOut,
 } from "lucide-react";
 
+const ZOOM_LEVELS = [
+  { scale: 1, label: "100x" },
+  { scale: 1.5, label: "200x" },
+  { scale: 2, label: "400x" },
+];
+
 function AtlasVisual() {
+  const [zoomIndex, setZoomIndex] = useState(0);
+  const currentZoom = ZOOM_LEVELS[zoomIndex];
+
+  const zoomIn = () => {
+    setZoomIndex((prev) => Math.min(prev + 1, ZOOM_LEVELS.length - 1));
+  };
+
+  const zoomOut = () => {
+    setZoomIndex((prev) => Math.max(prev - 1, 0));
+  };
+
   return (
     <div className="relative w-full h-96 mt-4 overflow-hidden rounded-xl bg-linear-to-br from-primary/5 to-accent/10">
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="relative">
+        <div
+          className="relative transition-transform duration-300 ease-out"
+          style={{ transform: `scale(${currentZoom.scale})` }}
+        >
           {/* Lamina layers */}
           <div className="absolute -top-2 -left-2 w-32 h-20 bg-accent/20 rounded-lg border border-accent/30 transform -rotate-6" />
           <div className="absolute -top-1 -left-1 w-32 h-20 bg-primary/20 rounded-lg border border-primary/30 transform -rotate-3" />
@@ -92,14 +114,40 @@ function AtlasVisual() {
           </div>
         </div>
       </div>
-      {/* Decorative elements */}
-      <div className="absolute top-2 right-2 text-xs font-mono text-muted-foreground/50">
-        400x
+      {/* Zoom indicator */}
+      <div className="absolute top-2 right-2 text-xs font-mono text-muted-foreground/50 transition-all duration-300">
+        {currentZoom.label}
       </div>
-      <div className="absolute bottom-2 left-2 flex gap-1">
-        <div className="w-1.5 h-1.5 rounded-full bg-primary/40" />
-        <div className="w-1.5 h-1.5 rounded-full bg-accent/40" />
-        <div className="w-1.5 h-1.5 rounded-full bg-muted-foreground/30" />
+      {/* Zoom controls */}
+      <div className="absolute bottom-2 left-2 flex items-center gap-1">
+        <button
+          type="button"
+          onClick={zoomOut}
+          disabled={zoomIndex === 0}
+          className="w-7 h-7 rounded-lg bg-background/80 border border-border flex items-center justify-center hover:bg-background hover:border-primary/50 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+          aria-label="Diminuir zoom"
+        >
+          <ZoomOut className="w-4 h-4 text-muted-foreground" />
+        </button>
+        <div className="flex gap-0.5 px-2">
+          {ZOOM_LEVELS.map((level, i) => (
+            <div
+              key={level.label}
+              className={`w-1.5 h-1.5 rounded-full transition-colors duration-300 ${
+                i <= zoomIndex ? "bg-primary/60" : "bg-muted-foreground/30"
+              }`}
+            />
+          ))}
+        </div>
+        <button
+          type="button"
+          onClick={zoomIn}
+          disabled={zoomIndex === ZOOM_LEVELS.length - 1}
+          className="w-7 h-7 rounded-lg bg-background/80 border border-border flex items-center justify-center hover:bg-background hover:border-primary/50 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+          aria-label="Aumentar zoom"
+        >
+          <ZoomIn className="w-4 h-4 text-muted-foreground" />
+        </button>
       </div>
     </div>
   );
