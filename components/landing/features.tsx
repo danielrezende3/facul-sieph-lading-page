@@ -15,7 +15,7 @@ import {
 
 function AtlasVisual() {
   return (
-    <div className="relative w-full h-48 mt-4 overflow-hidden rounded-xl bg-linear-to-br from-primary/5 to-accent/10">
+    <div className="relative w-full h-96 mt-4 overflow-hidden rounded-xl bg-linear-to-br from-primary/5 to-accent/10">
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="relative">
           {/* Lamina layers */}
@@ -330,7 +330,7 @@ export function Features() {
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[minmax(180px,auto)]">
           {/* Atlas Virtual - Large card spanning 2 columns */}
           <StaggerItem
-            className="md:col-span-2 lg:row-span-2 group relative rounded-3xl border border-border bg-background/70 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-90"
+            className="md:col-span-2 lg:row-span-2 group relative rounded-3xl border border-border bg-background/70 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-32"
             innerClassName="h-full"
           >
             <div className="relative h-full p-6">
@@ -390,30 +390,6 @@ export function Features() {
             </div>
           </StaggerItem>
 
-          {/* Simulador - Primary colored card */}
-          <StaggerItem
-            className="lg:col-span-1 group relative rounded-3xl border border-border bg-background/70 backdrop-blur-md text-foreground hover:border-primary/40 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-65"
-            innerClassName="h-full"
-          >
-            <div className="relative h-full p-6">
-              <div className="absolute bottom-0 right-0 w-32 h-32 bg-primary-foreground/5 rounded-full translate-y-1/2 translate-x-1/2" />
-              <div className="relative z-10 h-full flex flex-col">
-                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
-                  <Microscope className="w-5 h-5 text-primary" />
-                </div>
-                <h3 className="text-lg font-semibold mb-1">
-                  Simulador de Microscópio
-                </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Experiência realista que replica o uso do microscópio óptico.
-                </p>
-                <div className="flex-1 flex items-center justify-center mt-2">
-                  <MicroscopeVisual />
-                </div>
-              </div>
-            </div>
-          </StaggerItem>
-
           {/* Gestão - Wide card */}
           <StaggerItem
             className="md:col-span-2 group relative rounded-3xl border border-border bg-linear-to-br from-background/70 to-muted/30 backdrop-blur-md hover:border-primary/50 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-65"
@@ -435,6 +411,30 @@ export function Features() {
                   </p>
                 </div>
                 <ManagementVisual />
+              </div>
+            </div>
+          </StaggerItem>
+
+          {/* Simulador - Primary colored card */}
+          <StaggerItem
+            className="lg:col-span-1 group relative rounded-3xl border border-border bg-background/70 backdrop-blur-md text-foreground hover:border-primary/40 hover:shadow-xl transition-all duration-300 overflow-hidden min-h-65"
+            innerClassName="h-full"
+          >
+            <div className="relative h-full p-6">
+              <div className="absolute bottom-0 right-0 w-32 h-32 bg-primary-foreground/5 rounded-full translate-y-1/2 translate-x-1/2" />
+              <div className="relative z-10 h-full flex flex-col">
+                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mb-3">
+                  <Microscope className="w-5 h-5 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold mb-1">
+                  Simulador de Microscópio
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Experiência realista que replica o uso do microscópio óptico.
+                </p>
+                <div className="flex-1 flex items-center justify-center mt-2">
+                  <MicroscopeVisual />
+                </div>
               </div>
             </div>
           </StaggerItem>
