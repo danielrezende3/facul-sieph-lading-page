@@ -53,8 +53,8 @@ const teamGroups: TeamGroup[] = [
     icon: Lightbulb,
     color: "accent",
     members: [
-      { name: "Andre Britto de Carvalho", image: andre },
-      { name: "Adicineia Aparecida de Oliveira", image: adicineia },
+      { name: "André Britto de Carvalho", image: andre },
+      { name: "Adicinéia Aparecida de Oliveira", image: adicineia },
       { name: "Giovanny Fernando Lucero Palma", image: giovanny },
       { name: "Debora Maria Coelho Nascimento", image: debora },
     ],
@@ -185,7 +185,9 @@ export function Team() {
               </div>
 
               <div className="space-y-3">
-                {group.members.map((member) => (
+                {group.members
+                  .toSorted((a, b) => a.name.localeCompare(b.name))
+                  .map((member) => (
                   <div
                     key={member.name}
                     className="flex items-center gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors"
