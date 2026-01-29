@@ -188,20 +188,20 @@ export function Team() {
                 {group.members
                   .toSorted((a, b) => a.name.localeCompare(b.name))
                   .map((member) => (
-                  <div
-                    key={member.name}
-                    className="flex items-center gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors"
-                  >
-                    <MemberAvatar
-                      name={member.name}
-                      image={member.image}
-                      color={group.color}
-                    />
-                    <span className="text-sm text-foreground">
-                      {member.name}
-                    </span>
-                  </div>
-                ))}
+                    <div
+                      key={member.name}
+                      className="flex items-center gap-3 p-2 rounded-lg hover:bg-muted/50 transition-colors"
+                    >
+                      <MemberAvatar
+                        name={member.name}
+                        image={member.image}
+                        color={group.color}
+                      />
+                      <span className="text-sm text-foreground">
+                        {member.name}
+                      </span>
+                    </div>
+                  ))}
               </div>
             </ScrollReveal>
           ))}

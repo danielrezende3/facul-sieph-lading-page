@@ -39,19 +39,20 @@ export function Footer() {
               className="flex flex-col items-center gap-3 sm:flex-row sm:items-center"
             >
               <Image
-                src="/dcomp-logo.webp"
-                alt="dcomp"
-                width={1207}
-                height={1228}
-                className="h-20 w-auto"
-              />
-              <Image
                 src="/ufs-logo.webp"
                 alt="UFS"
                 width={3284}
                 height={1465}
                 className="h-20 w-auto"
               />
+              <Image
+                src="/dcomp-logo.webp"
+                alt="dcomp"
+                width={1207}
+                height={1228}
+                className="h-20 w-auto"
+              />
+
               <span className="flex items-center gap-3">
                 <Image
                   src="/s-ball.svg"
